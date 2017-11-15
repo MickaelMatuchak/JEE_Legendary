@@ -14,11 +14,14 @@ public class Equipement implements Serializable {
     private long id;
     private String nom;
     private String description;
-    private Enum<Type> type;
-    private Enum<Rarete> rarete;
+    // private Enum<Type> type;
+    private String type;
+    // private Enum<Rarete> rarete;
+    private String rarete;
     private Integer levelRequis;
-    private HashMap<String, Integer> caracteristiques;
+    // private HashMap<String, Integer> caracteristiques;
 
+    /*
     public Equipement(long id, String nom, String description, Enum<Type> type, Enum<Rarete> rarete, Integer levelRequis, HashMap<String, Integer> caracteristiques) {
         this.id = id;
         this.nom = nom;
@@ -27,6 +30,16 @@ public class Equipement implements Serializable {
         this.rarete = rarete;
         this.levelRequis = levelRequis;
         this.caracteristiques = caracteristiques;
+    }
+    */
+
+    public Equipement(long id, String nom, String description, String type, String rarete, Integer levelRequis) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.type = type;
+        this.rarete = rarete;
+        this.levelRequis = levelRequis;
     }
 
     public long getId() {
@@ -53,19 +66,19 @@ public class Equipement implements Serializable {
         this.description = description;
     }
 
-    public Enum<Type> getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Enum<Type> type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    public Enum<Rarete> getRarete() {
+    public String getRarete() {
         return rarete;
     }
 
-    public void setRarete(Enum<Rarete> rarete) {
+    public void setRarete(String rarete) {
         this.rarete = rarete;
     }
 
@@ -77,6 +90,7 @@ public class Equipement implements Serializable {
         this.levelRequis = levelRequis;
     }
 
+    /*
     public HashMap<String, Integer> getCaracteristiques() {
         return caracteristiques;
     }
@@ -84,4 +98,5 @@ public class Equipement implements Serializable {
     public void setCaracteristiques(HashMap<String, Integer> caracteristiques) {
         this.caracteristiques = caracteristiques;
     }
+    */
 }

@@ -6,23 +6,28 @@ import java.io.Serializable;
 import java.util.HashMap;
 
 public class Personnage implements Serializable {
+    public enum Caracteristique {Vie, Mana, Defense, Attaque;}
+    public enum Type {Arme, Casque, Armure, Gant, Ceinture, Pantalon, Botte, Anneau, Collier;}
+    public enum Classe {Barbare, Magicien, Prêtre, Chasseur, Voleur, Druide;}
+
     @Id
     private long id;
     private String pseudo;
     private Character sexe;
+    // private Enum<Classe> classe;
     private String classe;
-    private String level;
-    private HashMap<String, Integer> caracteristiques;
-    private HashMap<String, Equipement> equipement;
+    private Integer level;
+    private HashMap<Enum<Caracteristique>, Integer> caracteristiques;
+    private HashMap<Enum<Type>, Equipement> equipement;
 
-    public Personnage(long id, String pseudo, Character sexe, String classe, String level, HashMap<String, Integer> caracteristiques, HashMap<String, Equipement> equipement) {
+    public Personnage(long id, String pseudo, Character sexe, String classe, Integer level) {
         this.id = id;
         this.pseudo = pseudo;
-        this.sexe = sexe;
+        this.setSexe(sexe);
         this.classe = classe;
-        this.level = level;
-        this.caracteristiques = caracteristiques;
-        this.equipement = equipement;
+        this.setLevel(level);
+        this.caracteristiques = null;
+        this.equipement = null;
     }
 
     public long getId() {
@@ -46,7 +51,8 @@ public class Personnage implements Serializable {
     }
 
     public void setSexe(Character sexe) {
-        this.sexe = sexe;
+        if (sexe == 'M' || sexe == 'F')
+            this.sexe = sexe;
     }
 
     public String getClasse() {
@@ -57,27 +63,28 @@ public class Personnage implements Serializable {
         this.classe = classe;
     }
 
-    public String getLevel() {
+    public Integer getLevel() {
         return level;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
+    public void setLevel(Integer level) {
+        if (level >= 1 && level <= 50)
+            this.level = level;
     }
 
-    public HashMap<String, Integer> getCaracteristiques() {
+    public HashMap<Enum<Caracteristique>, Integer> getCaracteristiques() {
         return caracteristiques;
     }
 
-    public void setCaracteristiques(HashMap<String, Integer> caracteristiques) {
+    public void setCaracteristiques(HashMap<Enum<Caracteristique>, Integer> caracteristiques) {
         this.caracteristiques = caracteristiques;
     }
 
-    public HashMap<String, Equipement> getEquipement() {
+    public HashMap<Enum<Type>, Equipement> getEquipement() {
         return equipement;
     }
 
-    public void setEquipement(HashMap<String, Equipement> equipement) {
+    public void setEquipement(HashMap<Enum<Type>, Equipement> equipement) {
         this.equipement = equipement;
     }
 }
