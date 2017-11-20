@@ -13,8 +13,7 @@ public class Personnage implements Serializable {
     private String classe;
     private Integer level;
 
-    public Personnage(long id, String proprietaire, String pseudo, Character sexe, String classe, Integer level) {
-        this.id = id;
+    public Personnage(String proprietaire, String pseudo, Character sexe, String classe, Integer level) {
         this.proprietaire = proprietaire;
         this.pseudo = pseudo;
         this.sexe = sexe;
@@ -51,7 +50,8 @@ public class Personnage implements Serializable {
     }
 
     public void setSexe(Character sexe) {
-        this.sexe = sexe;
+        if (sexe == 'M' || sexe == 'F')
+            this.sexe = sexe;
     }
 
     public String getClasse() {
@@ -59,7 +59,8 @@ public class Personnage implements Serializable {
     }
 
     public void setClasse(String classe) {
-        this.classe = classe;
+        if (classe == "Trooper" || classe == "Contrebandier" || classe == "Chevalier Jedi" || classe == "Jedi Consulaire" || classe == "Chasseur de Primes" || classe == "Guerrier Sith" || classe == "Agent Impérial" || classe == "Inquisiteur Sith")
+            this.classe = classe;
     }
 
     public Integer getLevel() {
@@ -67,6 +68,7 @@ public class Personnage implements Serializable {
     }
 
     public void setLevel(Integer level) {
+        if (level >= 1 && level <= 50)
         this.level = level;
     }
 }

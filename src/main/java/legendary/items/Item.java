@@ -15,8 +15,7 @@ public class Item implements Serializable {
     private Float tauxDrop;
     private String img;
 
-    public Item(long id, String nom, String description, String type, String rarete, Integer levelRequis, Float tauxDrop, String img) {
-        this.id = id;
+    public Item(String nom, String description, String type, String rarete, Integer levelRequis, Float tauxDrop, String img) {
         this.nom = nom;
         this.description = description;
         this.type = type;

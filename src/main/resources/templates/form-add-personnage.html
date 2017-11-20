@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test template</title>
+    <link href="/styles.css" rel="stylesheet"/>
+    <link href="/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<h2>Création d'un nouveau personnage</h2>
+
+<form method="POST" action="#">
+    <label for="proprietaire">Nom du compte</label>
+    <input type="text" name="proprietaire" id="proprietaire"/>
+
+    <label for="pseudo">Pseudo</label>
+    <input type="text" name="pseudo" id="pseudo"/>
+
+    <label for="sexe">Sexe</label>
+    <select id="sexe" name="sexe">
+        <option value="M">Mâle</option>
+        <option value="F">Femelle</option>
+    </select>
+
+    <label for="classe">Classe</label>
+    <select id="classe" name="classe">
+        <option value="Trooper">Trooper</option>
+        <option value="Contrebandier">Contrebandier</option>
+        <option value="Chevalier Jedi">Chevalier Jedi</option>
+        <option value="Jedi Consulaire">Jedi Consulaire</option>
+        <option value="Chasseur de Primes">Chasseur de Primes</option>
+        <option value="Guerrier Sith">Guerrier Sith</option>
+        <option value="Agent Impérial">Agent Impérial</option>
+        <option value="Inquisiteur Sith">Inquisiteur Sith</option>
+    </select>
+
+    <label for="level">Niveau</label>
+    <input type="number" name="level" id="level"/>
+
+    <input type="submit" value="Créer" class="btn btn-success"/>
+</form>
+</body>
+</html>

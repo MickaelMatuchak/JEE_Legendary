@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class PersonnageController {
     private PersonnageRepository personnageRepository;
 
     // Liste des personnages
-    @RequestMapping("/")
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
         List<Personnage> personnages = this.personnageRepository.findAll();
 
@@ -23,10 +25,23 @@ public class PersonnageController {
         return "accueil";
     }
 
-    @RequestMapping("/personnages/{id}")
-    public String personnage(@PathVariable long id, Model model) {
+    @RequestMapping(value = "/personnages/{id}", method = RequestMethod.GET)
+    public String detailPersonnage(@PathVariable long id, Model model) {
         Personnage personnage = this.personnageRepository.findOne(id);
 
+        model.addAttribute("personnage", personnage);
+        return "detail-personnage";
+    }
+
+    @RequestMapping(value = "/personnages/add", method = RequestMethod.GET)
+    public String formAddPersonnage() {
+        return "form-add-personnage";
+    }
+
+    @RequestMapping(value = "/personnages/add", method = RequestMethod.POST)
+    public String addPersonnage(Model model, @RequestParam("proprietaire") String proprietaire, @RequestParam("pseudo") String pseudo, @RequestParam("sexe") Character sexe, @RequestParam("classe") String classe, @RequestParam("level") Integer level) {
+        Personnage personnage = new Personnage(proprietaire, pseudo, sexe, classe, level);
+        personnageRepository.save(personnage);
         model.addAttribute("personnage", personnage);
         return "detail-personnage";
     }

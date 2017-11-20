@@ -14,10 +14,10 @@
     <a href="/items">Voir la liste des objets.</a>
 </div>
 
-<h2>Vos personnages :</h2>
-<button class="btn btn-success">Créer</button>
-
 <div id="personnages">
+    <h2>Vos personnages :</h2>
+    <a href="/personnages/add" class="btn btn-success">Créer</a>
+
     {{#personnages}}
     <div class="activity">
         <div class="activity-bar">
@@ -26,7 +26,7 @@
                     <div style="background: url(&quot;https://static.dofusplanner.com/planner/images/social/noavatar.3ac719fec201.png&quot;) center center / contain no-repeat; border-radius: 5px; height: 50px; width: 50px;"></div>
                 </div>
                 <div class="description">
-                    <div class="headline"><a class="profile-link" href="/personnages/{{id}}">{{pseudo}}</a> par utilisateur#id</div>
+                    <div class="headline">#{{id}} <a class="profile-link" href="/personnages/{{id}}">{{pseudo}}</a> par {{proprietaire}}</div>
                 </div>
             </div>
         </div>

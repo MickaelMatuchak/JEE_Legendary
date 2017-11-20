@@ -17,8 +17,12 @@ h1, h2 {
     margin: 0 auto;
 }
 
-#equipements {
+#items {
     text-align: center;
+}
+
+input {
+    background-color: lightgray;
 }
 
 /* CSS Dofus */
