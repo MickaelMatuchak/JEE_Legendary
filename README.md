@@ -1,3 +1,3 @@
 Projet Legendary :
 
-Application Web permettant la gestion d'un personnage et de son equipement.
+Application Web permettant la gestion d'un personnage et de son item.

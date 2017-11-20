@@ -1,23 +1,18 @@
-package legendary.controller;
+package legendary.personnages;
 
-import java.util.List;
-
-import legendary.model.Equipement;
-import legendary.model.Personnage;
-import legendary.repository.EquipementRepository;
-import legendary.repository.PersonnageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
-public class LegendaryController {
+@RequestMapping("/api")
+public class PersonnageRestController {
 
     @Autowired
     private PersonnageRepository personnageRepository;
-    @Autowired
-    private EquipementRepository equipementRepository;
 
     // Personnage
 
@@ -29,17 +24,5 @@ public class LegendaryController {
     @RequestMapping("/personnages/{id}")
     public Personnage personnage(@PathVariable long id) {
         return this.personnageRepository.findOne(id);
-    }
-
-    // Equipement
-
-    @RequestMapping("/equipements")
-    public List<Equipement> equipements() {
-        return this.equipementRepository.findAll();
-    }
-
-    @RequestMapping("/equipements/{id}")
-    public Equipement equipement(@PathVariable long id) {
-        return this.equipementRepository.findOne(id);
     }
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test template</title>
+    <link href="/styles.css" rel="stylesheet" />
+    <link href="/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+        </tr>
+        {{#items}}
+            <tr>
+                <td><a href="/items/{{id}}">{{nom}}</a></td>
+                <td>{{description}}</td>
+            </tr>
+        {{/items}}
+    </table>
+</body>
+</html>

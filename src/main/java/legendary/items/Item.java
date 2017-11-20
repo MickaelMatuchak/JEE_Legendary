@@ -1,45 +1,29 @@
-package legendary.model;
+package legendary.items;
 
 import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
-import java.util.HashMap;
 
-
-public class Equipement implements Serializable {
-    public enum Type {Arme, Casque, Armure, Gant, Ceinture, Pantalon, Botte, Anneau, Collier;}
-    public enum Rarete {Commun, Rare, Epique, Legendaire;}
-
+public class Item implements Serializable {
     @Id
     private long id;
     private String nom;
     private String description;
-    // private Enum<Type> type;
     private String type;
-    // private Enum<Rarete> rarete;
     private String rarete;
     private Integer levelRequis;
-    // private HashMap<String, Integer> caracteristiques;
+    private Float tauxDrop;
+    private String img;
 
-    /*
-    public Equipement(long id, String nom, String description, Enum<Type> type, Enum<Rarete> rarete, Integer levelRequis, HashMap<String, Integer> caracteristiques) {
+    public Item(long id, String nom, String description, String type, String rarete, Integer levelRequis, Float tauxDrop, String img) {
         this.id = id;
         this.nom = nom;
         this.description = description;
         this.type = type;
         this.rarete = rarete;
         this.levelRequis = levelRequis;
-        this.caracteristiques = caracteristiques;
-    }
-    */
-
-    public Equipement(long id, String nom, String description, String type, String rarete, Integer levelRequis) {
-        this.id = id;
-        this.nom = nom;
-        this.description = description;
-        this.type = type;
-        this.rarete = rarete;
-        this.levelRequis = levelRequis;
+        this.tauxDrop = tauxDrop;
+        this.img = img;
     }
 
     public long getId() {
@@ -90,13 +74,19 @@ public class Equipement implements Serializable {
         this.levelRequis = levelRequis;
     }
 
-    /*
-    public HashMap<String, Integer> getCaracteristiques() {
-        return caracteristiques;
+    public Float getTauxDrop() {
+        return tauxDrop;
     }
 
-    public void setCaracteristiques(HashMap<String, Integer> caracteristiques) {
-        this.caracteristiques = caracteristiques;
+    public void setTauxDrop(Float tauxDrop) {
+        this.tauxDrop = tauxDrop;
     }
-    */
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 }
