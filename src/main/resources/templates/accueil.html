@@ -15,61 +15,23 @@
 </div>
 
 <div id="personnages">
-    <h2>Vos personnages :</h2>
+    <h2>Liste des personnages :</h2>
     <a href="/personnages/add" class="btn btn-success">Créer</a>
 
     {{#personnages}}
     <div class="activity">
         <div class="activity-bar">
             <div class="main-bar">
-                <div class="profile-avatar" style="height: 50px; width: 50px;">
-                    <div style="background: url(&quot;https://static.dofusplanner.com/planner/images/social/noavatar.3ac719fec201.png&quot;) center center / contain no-repeat; border-radius: 5px; height: 50px; width: 50px;"></div>
-                </div>
                 <div class="description">
-                    <div class="headline">#{{id}} <a class="profile-link" href="/personnages/{{pseudo}}">{{pseudo}}</a> par {{proprietaire}}</div>
+                    <div class="headline">#{{id}} <a class="profile-link" href="/personnages/{{pseudo}}">{{pseudo}}</a>
+                        par {{proprietaire}}
+                    </div>
                 </div>
             </div>
         </div>
         <div class="set-preview">
             <div class="mini-set">
                 <div class="item-column">
-                    <div class="item-box">
-                        <div class="item-box-inner"
-                             style="background: url(&quot;https://media.dofusplanner.com/trophy/nomad.png&quot;) center center / 30px 30px no-repeat;"></div>
-                    </div>
-                    <div class="item-box">
-                        <div class="item-box-inner"
-                             style="background: url(&quot;https://media.dofusplanner.com/trophy/shaker_1ZklvUk.png&quot;) center center / 30px 30px no-repeat;"></div>
-                    </div>
-                    <div class="item-box">
-                        <div class="item-box-inner"
-                             style="background: url(&quot;https://media.dofusplanner.com/media/dofus/major_gymnast.png&quot;) center center / 30px 30px no-repeat;"></div>
-                    </div>
-                    <div class="item-box">
-                        <div class="item-box-inner"
-                             style="background: url(&quot;https://media.dofusplanner.com/trophy/major_stunter.png&quot;) center center / 30px 30px no-repeat;"></div>
-                    </div>
-                    <div class="item-box">
-                        <div class="item-box-inner"
-                             style="background: url(&quot;https://media.dofusplanner.com/trophy/major_vigour.png&quot;) center center / 30px 30px no-repeat;"></div>
-                    </div>
-                    <div class="item-box">
-                        <div class="item-box-inner" style="background-size: 30px 30px;"></div>
-                    </div>
-                </div>
-                <div class="item-column">
-                    <div class="item-box">
-                        <div class="item-box-inner"
-                             style="background: url(&quot;https://media.dofusplanner.com/amulet/cycloid_amulet.png&quot;) center center / 30px 30px no-repeat;"></div>
-                    </div>
-                    <div class="item-box">
-                        <div class="item-box-inner"
-                             style="background: url(&quot;https://media.dofusplanner.com/shield/four_leaf.png&quot;) center center / 30px 30px no-repeat;"></div>
-                    </div>
-                    <div class="item-box">
-                        <div class="item-box-inner"
-                             style="background: url(&quot;https://media.dofusplanner.com/ring/allisters_ring.png&quot;) center center / 30px 30px no-repeat;"></div>
-                    </div>
                     <div class="item-box">
                         <div class="item-box-inner"
                              style="background: url(&quot;https://media.dofusplanner.com/belt/belteen.png&quot;) center center / 30px 30px no-repeat;"></div>
@@ -79,27 +41,17 @@
                              style="background: url(&quot;https://media.dofusplanner.com/boots/slothful_slippers.png&quot;) center center / 30px 30px no-repeat;"></div>
                     </div>
                 </div>
-                <div class="sprite"
-                     style="background: url(&quot;https://media.dofusplanner.com/class/osamodas/sprite.png&quot;) center center / auto 200px no-repeat;"></div>
+                <div class="sprite">
+                    <div class="profile-avatar {{sexe}}" style="height: 235px; width: 235px;">
+                        <div style="border-radius: 5px; height: 235px; width: 235px;">
+                            <img src="/img/{{urlImage}}.jpg" alt="Personnage">
+                        </div>
+                    </div>
+                </div>
                 <div class="item-column">
                     <div class="item-box">
                         <div class="item-box-inner"
                              style="background: url(&quot;https://media.dofusplanner.com/hat/allisters_crown.png&quot;) center center / 30px 30px no-repeat;"></div>
-                    </div>
-                    <div class="item-box">
-                        <div class="item-box-inner"
-                             style="background: url(&quot;https://media.dofusplanner.com/weapon/manthache.png&quot;) center center / 30px 30px no-repeat;"></div>
-                    </div>
-                    <div class="item-box">
-                        <div class="item-box-inner"
-                             style="background: url(&quot;https://media.dofusplanner.com/ring/jammy_jack_glove.png&quot;) center center / 30px 30px no-repeat;"></div>
-                    </div>
-                    <div class="item-box">
-                        <div class="item-box-inner"
-                             style="background: url(&quot;https://media.dofusplanner.com/cloak/cushtycloak.png&quot;) center center / 30px 30px no-repeat;"></div>
-                    </div>
-                    <div class="item-box">
-                        <div class="item-box-inner" style="background-size: 30px 30px;"></div>
                     </div>
                 </div>
             </div>
@@ -108,30 +60,22 @@
                 <div class="name" title="Niveau {{level}} {{classe}}">Niveau {{level}} - {{classe}}</div>
                 <div class="info-inner-container">
                     <div class="stats">
-                        <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/vitality.png">
-                            <div class="stat-holder">Vitalité</div>
-                            <div class="stat-value">3952</div>
-                        </div>
-                        <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/wisdom.png">
-                            <div class="stat-holder">Sagesse</div>
+                        <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/agility.png">
+                            <div class="stat-holder">Maitrise</div>
                             <div class="stat-value">415</div>
                         </div>
-                        <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/strength.png">
-                            <div class="stat-holder">Force</div>
+                        <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/vitality.png">
+                            <div class="stat-holder">Endurance</div>
                             <div class="stat-value">197</div>
                         </div>
                         <div class="stat"><img
                                 src="https://static.dofusplanner.com/website/images/stats/intelligence.png">
-                            <div class="stat-holder">Intelligence</div>
+                            <div class="stat-holder">Puissance</div>
                             <div class="stat-value">514</div>
                         </div>
-                        <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/chance.png">
-                            <div class="stat-holder">Chance</div>
+                        <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/vitality.png">
+                            <div class="stat-holder">Défense</div>
                             <div class="stat-value">145</div>
-                        </div>
-                        <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/agility.png">
-                            <div class="stat-holder">Agilité</div>
-                            <div class="stat-value">880</div>
                         </div>
                     </div>
                 </div>

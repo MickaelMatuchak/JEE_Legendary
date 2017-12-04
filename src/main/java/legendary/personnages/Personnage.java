@@ -4,6 +4,7 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
+import java.text.Normalizer;
 
 public class Personnage implements Serializable {
     @Id
@@ -13,14 +14,19 @@ public class Personnage implements Serializable {
     private Character sexe;
     private String classe;
     private Integer level;
+    private String urlImage;
+
+    private String idCasque;
+    private String idArmure;
+    private String idSabre;
 
     public Personnage(String proprietaire, String pseudo, Character sexe, String classe, Integer level) {
         this.id = new ObjectId().toString();
         this.proprietaire = proprietaire;
         this.pseudo = pseudo;
-        this.sexe = sexe;
-        this.classe = classe;
-        this.level = level;
+        this.setSexe(sexe);
+        this.setClasse(classe);
+        this.setLevel(level);
     }
 
     public String getId() {
@@ -61,8 +67,17 @@ public class Personnage implements Serializable {
     }
 
     public void setClasse(String classe) {
+
+        this.classe = classe;
         if (classe == "Trooper" || classe == "Contrebandier" || classe == "Chevalier Jedi" || classe == "Jedi Consulaire" || classe == "Chasseur de Primes" || classe == "Guerrier Sith" || classe == "Agent Impérial" || classe == "Inquisiteur Sith")
             this.classe = classe;
+
+        String urlImg = classe.toLowerCase();
+        urlImg = Normalizer.normalize(urlImg, Normalizer.Form.NFD);
+        urlImg = urlImg.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+
+        urlImg = urlImg.replaceAll("\\s","-" );
+        this.setUrlImage(urlImg);
     }
 
     public Integer getLevel() {
@@ -72,5 +87,37 @@ public class Personnage implements Serializable {
     public void setLevel(Integer level) {
         if (level >= 1 && level <= 50)
         this.level = level;
+    }
+
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
+    }
+
+    public String getIdCasque() {
+        return idCasque;
+    }
+
+    public void setIdCasque(String idCasque) {
+        this.idCasque = idCasque;
+    }
+
+    public String getIdArmure() {
+        return idArmure;
+    }
+
+    public void setIdArmure(String idArmure) {
+        this.idArmure = idArmure;
+    }
+
+    public String getIdSabre() {
+        return idSabre;
+    }
+
+    public void setIdSabre(String idSabre) {
+        this.idSabre = idSabre;
     }
 }
