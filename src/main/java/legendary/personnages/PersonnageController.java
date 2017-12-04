@@ -25,9 +25,9 @@ public class PersonnageController {
         return "accueil";
     }
 
-    @RequestMapping(value = "/personnages/{id}", method = RequestMethod.GET)
-    public String detailPersonnage(@PathVariable long id, Model model) {
-        Personnage personnage = this.personnageRepository.findOne(id);
+    @RequestMapping(value = "/personnages/{pseudo}", method = RequestMethod.GET)
+    public String detailPersonnage(@PathVariable String pseudo, Model model) {
+        Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
 
         model.addAttribute("personnage", personnage);
         return "detail-personnage";

@@ -1,12 +1,13 @@
 package legendary.personnages;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
 
 public class Personnage implements Serializable {
     @Id
-    private long id;
+    private String id;
     private String proprietaire;
     private String pseudo;
     private Character sexe;
@@ -14,6 +15,7 @@ public class Personnage implements Serializable {
     private Integer level;
 
     public Personnage(String proprietaire, String pseudo, Character sexe, String classe, Integer level) {
+        this.id = new ObjectId().toString();
         this.proprietaire = proprietaire;
         this.pseudo = pseudo;
         this.sexe = sexe;
@@ -21,11 +23,11 @@ public class Personnage implements Serializable {
         this.level = level;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
