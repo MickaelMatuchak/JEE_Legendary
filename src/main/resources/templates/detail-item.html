@@ -7,8 +7,13 @@
     <link href="/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <h2>Détails : {{item.nom}}</h2>
-    {{item.description}}
+    <h2>Informations sur : {{item.nom}}</h2>
+    <p><strong>Description : </strong>{{item.description}}</p>
+    <p><strong>type : </strong>{{item.type}}</p>
+    <p><strong>rarete : </strong>{{item.rarete}}</p>
+    <p><strong>levelRequis : </strong>{{item.levelRequis}} minimum</p>
+    <p><strong>tauxDrop : </strong>{{item.tauxDrop}} %</p>
+    <p><strong>img : </strong>{{item.img}}</p>
     <button class="btn btn-primary">Modifier</button>
     <button class="btn btn-danger">Supprimer</button>
 </body>
