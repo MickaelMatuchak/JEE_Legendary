@@ -56,6 +56,7 @@ public class Item implements Serializable {
     }
 
     public void setType(String type) {
+    	if(type=="combinaison" || type=="arme" || type=="casque")
         this.type = type;
     }
 
@@ -64,6 +65,7 @@ public class Item implements Serializable {
     }
 
     public void setRarete(String rarete) {
+    	if(rarete=="commun" || rarete=="rare" || rarete=="epique" || rarete=="legendaire")
         this.rarete = rarete;
     }
 
@@ -72,6 +74,7 @@ public class Item implements Serializable {
     }
 
     public void setLevelRequis(Integer levelRequis) {
+    	if (levelRequis >= 1 && levelRequis <= 50)
         this.levelRequis = levelRequis;
     }
 
