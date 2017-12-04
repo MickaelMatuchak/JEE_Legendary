@@ -7,9 +7,88 @@
     <link href="/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">StarWars Editor</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">Personnages</a></li>
+                <li><a href="/items">Items</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
     <h2>Détails : {{personnage.pseudo}}</h2>
-    {{personnage.classe}}
+
+    {{#personnage}}
+    <div class="activity">
+        <div class="activity-bar">
+            <div class="main-bar">
+                <div class="description">
+                    <div class="headline">#{{id}} <a class="profile-link" href="/personnages/{{pseudo}}">{{pseudo}}</a>
+                        par <a class="profile-link" href="/proprietaires/{{proprietaire}}">{{proprietaire}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="set-preview">
+            <div class="mini-set">
+                <div class="item-column">
+                    <div class="item-box">
+                        <div class="item-box-inner"
+                             style="background: url(&quot;https://media.dofusplanner.com/belt/belteen.png&quot;) center center / 30px 30px no-repeat;"></div>
+                    </div>
+                    <div class="item-box">
+                        <div class="item-box-inner"
+                             style="background: url(&quot;https://media.dofusplanner.com/boots/slothful_slippers.png&quot;) center center / 30px 30px no-repeat;"></div>
+                    </div>
+                </div>
+                <div class="sprite">
+                    <div class="profile-avatar {{sexe}}" style="height: 235px; width: 235px;">
+                        <div style="border-radius: 5px; height: 235px; width: 235px;">
+                            <img src="/img/{{urlImage}}.jpg" alt="Personnage">
+                        </div>
+                    </div>
+                </div>
+                <div class="item-column">
+                    <div class="item-box">
+                        <div class="item-box-inner"
+                             style="background: url(&quot;https://media.dofusplanner.com/hat/allisters_crown.png&quot;) center center / 30px 30px no-repeat;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info">
+                <div class="name" title="Niveau {{level}} {{classe}}">Niveau {{level}} - {{classe}}</div>
+                <div class="info-inner-container">
+                    <div class="stats">
+                        <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/agility.png">
+                            <div class="stat-holder">Maitrise</div>
+                            <div class="stat-value">415</div>
+                        </div>
+                        <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/vitality.png">
+                            <div class="stat-holder">Endurance</div>
+                            <div class="stat-value">197</div>
+                        </div>
+                        <div class="stat"><img
+                                src="https://static.dofusplanner.com/website/images/stats/intelligence.png">
+                            <div class="stat-holder">Puissance</div>
+                            <div class="stat-value">514</div>
+                        </div>
+                        <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/chance.png">
+                            <div class="stat-holder">Défense</div>
+                            <div class="stat-value">145</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <button class="btn btn-primary">Modifier</button>
     <button class="btn btn-danger">Supprimer</button>
+    {{/personnage}}
 </body>
 </html>

@@ -45,4 +45,13 @@ public class PersonnageController {
         model.addAttribute("personnage", personnage);
         return "detail-personnage";
     }
+
+    @RequestMapping(value = "/proprietaires/{proprietaire}", method = RequestMethod.GET)
+    public String listPersonnagesByUser(@PathVariable String proprietaire, Model model) {
+        List<Personnage> personnages = this.personnageRepository.findAllByProprietaire(proprietaire);
+
+        model.addAttribute("personnages", personnages);
+        model.addAttribute("proprietaire", proprietaire);
+        return "list-personnages-user";
+    }
 }
