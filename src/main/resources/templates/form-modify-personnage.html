@@ -24,10 +24,10 @@
 
 <form method="POST" action="#">
     <label for="proprietaire">Nom du compte</label>
-    <input type="text" name="proprietaire" id="proprietaire"/>
+    <input type="text" name="proprietaire" id="proprietaire" value="{{ personnage.proprietaire }}"/>
 
     <label for="pseudo">Pseudo</label>
-    <input type="text" name="pseudo" id="pseudo"/>
+    <input type="text" name="pseudo" id="pseudo" value="{{ personnage.pseudo }}"/>
 
     <label for="sexe">Sexe</label>
     <select id="sexe" name="sexe">
@@ -48,7 +48,7 @@
     </select>
 
     <label for="level">Niveau</label>
-    <input type="number" name="level" id="level"/>
+    <input type="number" name="level" id="level" value="{{ personnage.level }}"/>
 
     <input type="submit" value="Valider" class="btn btn-success"/>
 </form>

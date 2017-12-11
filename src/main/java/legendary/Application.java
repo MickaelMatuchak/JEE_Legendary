@@ -1,6 +1,5 @@
 package legendary;
 
-import legendary.items.Item;
 import legendary.personnages.Personnage;
 import legendary.items.ItemRepository;
 import legendary.personnages.PersonnageRepository;

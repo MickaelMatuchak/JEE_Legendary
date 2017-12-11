@@ -40,7 +40,12 @@ public class PersonnageController {
 
     @RequestMapping(value = "/personnages/add", method = RequestMethod.POST)
     public String addPersonnage(Model model, @RequestParam("proprietaire") String proprietaire, @RequestParam("pseudo") String pseudo, @RequestParam("sexe") Character sexe, @RequestParam("classe") String classe, @RequestParam("level") Integer level) {
+        Personnage fetchPersonnage = this.personnageRepository.findByPseudo(pseudo);
         Personnage personnage = new Personnage(proprietaire, pseudo, sexe, classe, level);
+
+        if (fetchPersonnage != null)
+            return "erreur";
+
         personnageRepository.save(personnage);
         model.addAttribute("personnage", personnage);
         return "detail-personnage";
@@ -52,6 +57,39 @@ public class PersonnageController {
 
         model.addAttribute("personnages", personnages);
         model.addAttribute("proprietaire", proprietaire);
+
         return "list-personnages-user";
+    }
+
+    @RequestMapping(value = "/personnages/delete/{pseudo}", method = RequestMethod.GET)
+    public String deletePersonnage(@PathVariable String pseudo) {
+        Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
+        this.personnageRepository.delete(personnage);
+
+        return "redirect";
+    }
+
+    @RequestMapping(value = "/personnages/modify/{pseudo}", method = RequestMethod.GET)
+    public String formModifyPersonnage(@PathVariable String pseudo, Model model) {
+        Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
+
+        model.addAttribute(personnage);
+
+        return "form-modify-personnage";
+    }
+
+    @RequestMapping(value = "/personnages/modify/{pseudo}", method = RequestMethod.POST)
+    public String modifyPersonnage(@PathVariable String pseudo, @RequestParam("proprietaire") String proprietaire, @RequestParam("pseudo") String newPseudo, @RequestParam("sexe") Character sexe, @RequestParam("classe") String classe, @RequestParam("level") Integer level) {
+        Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
+
+        personnage.setProprietaire(proprietaire);
+        personnage.setPseudo(newPseudo);
+        personnage.setSexe(sexe);
+        personnage.setClasse(classe);
+        personnage.setLevel(level);
+
+        this.personnageRepository.save(personnage);
+
+        return "redirect";
     }
 }
