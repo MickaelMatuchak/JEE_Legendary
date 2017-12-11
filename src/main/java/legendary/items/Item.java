@@ -1,6 +1,5 @@
 package legendary.items;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
@@ -13,18 +12,15 @@ public class Item implements Serializable {
     private String type;
     private String rarete;
     private Integer levelRequis;
-    private Float tauxDrop;
-    private String img;
+    private Double tauxDrop;
 
-    public Item(String nom, String description, String type, String rarete, Integer levelRequis, Float tauxDrop, String img) {
+    public Item(String nom, String description, String type, String rarete, Integer levelRequis, Double tauxDrop) {
         this.nom = nom;
         this.description = description;
         this.type = type;
         this.rarete = rarete;
         this.levelRequis = levelRequis;
         this.tauxDrop = tauxDrop;
-        this.img = img;
-        this.id = new ObjectId().toString();
     }
 
     public String getId() {
@@ -75,19 +71,11 @@ public class Item implements Serializable {
         this.levelRequis = levelRequis;
     }
 
-    public Float getTauxDrop() {
+    public Double getTauxDrop() {
         return tauxDrop;
     }
-
-    public void setTauxDrop(Float tauxDrop) {
+    public void setTauxDrop(Double tauxDrop) {
         this.tauxDrop = tauxDrop;
     }
 
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
 }

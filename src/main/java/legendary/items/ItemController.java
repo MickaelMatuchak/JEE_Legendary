@@ -38,9 +38,17 @@ public class ItemController {
         return "form-add-item";
     }
 
+    @RequestMapping(value = "/items/craft", method = RequestMethod.GET)
+    public String formCraftItem(Model model) {
+
+        List<Item> items = this.itemRepository.findAll();
+
+        model.addAttribute("items", items);return "form-craft-item";
+    }
+
     @RequestMapping(value = "/items/add", method = RequestMethod.POST)
-    public String addItem(Model model, @RequestParam("nom") String nom, @RequestParam("description") String description, @RequestParam("type") String type, @RequestParam("rarete") String rarete, @RequestParam("levelRequis") Integer levelRequis, @RequestParam("tauxDrop") Float tauxDrop, @RequestParam("img") String img) {
-        Item item = new Item(nom, description, type, rarete, levelRequis, tauxDrop, img);
+    public String addItem(Model model, @RequestParam("nom") String nom, @RequestParam("description") String description, @RequestParam("type") String type, @RequestParam("rarete") String rarete, @RequestParam("levelRequis") Integer levelRequis, @RequestParam("tauxDrop") Double tauxDrop){
+        Item item = new Item(nom, description, type, rarete, levelRequis, tauxDrop);
         itemRepository.save(item);
         model.addAttribute("item", item);
         return "detail-item";
