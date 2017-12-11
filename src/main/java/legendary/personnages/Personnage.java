@@ -5,8 +5,14 @@ import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
 import java.text.Normalizer;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Personnage implements Serializable {
+    final ArrayList<Double> ratioDefByClass = new ArrayList<>(Arrays.asList(1.0, 0.9, 1.1, 1.5, 1.1, 1.25, 1.3, 1.2));
+    final ArrayList<Double> ratioAttByClass = new ArrayList<>(Arrays.asList(1.0, 1.1, 0.9, 0.5, 0.9, 0.75, 0.7, 0.8));
+    final ArrayList<String> allClasses = new ArrayList<>(Arrays.asList("Trooper", "Contrebandier", "Chevalier Jedi", "Jedi Consulaire", "Chasseur de Primes", "Guerrier Sith", "Agent Impérial", "Inquisiteur Sith"));
+
     @Id
     private String id;
     private String proprietaire;
@@ -15,6 +21,11 @@ public class Personnage implements Serializable {
     private String classe;
     private Integer level;
     private String urlImage;
+
+    private Double maitrise = 10.0;
+    private Double endurance = 12.0;
+    private Double puissance = 8.0;
+    private Double defense = 12.0;
 
     private String idCasque;
     private String idArmure;
@@ -27,6 +38,11 @@ public class Personnage implements Serializable {
         this.setSexe(sexe);
         this.setClasse(classe);
         this.setLevel(level);
+
+        this.setMaitrise();
+        this.setEndurance();
+        this.setPuissance();
+        this.setDefense();
     }
 
     public String getId() {
@@ -119,5 +135,47 @@ public class Personnage implements Serializable {
 
     public void setIdSabre(String idSabre) {
         this.idSabre = idSabre;
+    }
+
+    public Double getMaitrise() {
+        return maitrise;
+    }
+
+    public void setMaitrise() {
+        this.maitrise = level * ratioAttByClass.get(getIndexClasses());
+    }
+
+    public Double getEndurance() {
+        return endurance;
+    }
+
+    public void setEndurance() {
+        this.endurance = level * ratioDefByClass.get(getIndexClasses());
+    }
+
+    public Double getPuissance() {
+        return puissance;
+    }
+
+    public void setPuissance() {
+        this.puissance = level * ratioAttByClass.get(getIndexClasses());
+    }
+
+    public Double getDefense() {
+        return defense;
+    }
+
+    public void setDefense() {
+        this.defense = level * ratioDefByClass.get(getIndexClasses());
+    }
+
+    public Integer getIndexClasses() {
+        int index = 0;
+
+        for (int i = 0; i < allClasses.size(); i++)
+            if (allClasses.get(i) == this.classe)
+                index = i;
+
+        return index;
     }
 }

@@ -43,7 +43,7 @@ public class PersonnageController {
         Personnage fetchPersonnage = this.personnageRepository.findByPseudo(pseudo);
         Personnage personnage = new Personnage(proprietaire, pseudo, sexe, classe, level);
 
-        if (fetchPersonnage != null)
+        if (fetchPersonnage == personnage)
             return "erreur";
 
         personnageRepository.save(personnage);
