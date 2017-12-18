@@ -27,11 +27,13 @@
 
     <table>
         <tr>
+        	<th>Logo</th>
             <th>Nom</th>
             <th>Description</th>
         </tr>
         {{#items}}
             <tr>
+            	<td><img src="/img/items/{{img}}" alt="" class="image_item"></td>
                 <td><a href="/items/{{nom}}">{{nom}}</a></td>
                 <td>{{description}}</td>
             </tr>
