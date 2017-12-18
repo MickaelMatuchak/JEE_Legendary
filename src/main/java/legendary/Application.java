@@ -37,7 +37,7 @@ public class Application {
             itemRepository.save(new Item("Sabre de Dark Vador", "Sabre laser de Dark Vador", "Arme", "legendaire", 40, 10.0));
 
             userRepository.save(new User("theo", "theo"));
-            userRepository.save(new User("benji", "bg59"));
+            userRepository.save(new User("benji", "benji"));
 
 
         };

@@ -3,14 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Craft Item</title>
+    <link href="/styles.css" rel="stylesheet"/>
+    <link href="/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-TESSSSSSSSSSSSSSSSSSSSSSSSSSS
 
-{{#items}}
-<label for="nom">Nom de l'item</label>
-<select id="nom" name="nom">
-    <option value="nom">{{nom}}</option>
-</select>
+<form action="/items/craft/result" method="POST">
+
+    <div>
+        <label for="nom1">Nom de l'item 1</label>
+        <select id="nom1" name="nom1">
+            {{#items}}
+            <option value="{{nom}}">{{nom}}</option>
+            {{/items}}
+        </select>
+
+    </div>
+
+
+    </div>
+    <label for="nom2">Nom de l'item 2</label>
+    <select id="nom2" name="nom2">
+        {{#items}}
+        <option value="{{nom}}">{{nom}}</option>
+        {{/items}}
+    </select>
+    </div>
+
+
+    <button class="btn btn-primary btn-lg">Crafter</button>
+</form>
+
+<h1> Objet crafté :</h1>
+{{#item3}}
+
+<h2>Nom : {{nom}}</h2>
+<h2>Rareté : {{rarete}}</h2>
+{{/item3}}
+
+{{#erreur}}
+    {{erreur}}
+{{/erreur}}
+
 </body>
 </html>
