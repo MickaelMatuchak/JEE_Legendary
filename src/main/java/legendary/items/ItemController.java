@@ -37,8 +37,8 @@ public class ItemController {
     }
 
     @RequestMapping(value = "/items/add", method = RequestMethod.POST)
-    public String addItem(Model model, @RequestParam("nom") String nom, @RequestParam("description") String description, @RequestParam("type") String type, @RequestParam("rarete") String rarete, @RequestParam("levelRequis") Integer levelRequis, @RequestParam("tauxDrop") Float tauxDrop, @RequestParam("durabilite") Integer durabilite, @RequestParam("img") String img) {
-        Item item = new Item(nom, description, type, rarete, levelRequis, tauxDrop, durabilite, img);
+    public String addItem(Model model, @RequestParam("nom") String nom, @RequestParam("description") String description, @RequestParam("type") String type, @RequestParam("rarete") String rarete, @RequestParam("levelRequis") Integer levelRequis, @RequestParam("tauxDrop") Float tauxDrop, @RequestParam("durabilite") Integer durabilite, @RequestParam("img") String img, @RequestParam("attaque") Integer attaque, @RequestParam("defense") Integer defense) {
+        Item item = new Item(nom, description, type, rarete, levelRequis, tauxDrop, durabilite, img, attaque, defense);
         itemRepository.save(item);
         model.addAttribute("item", item);
         return "detail-item";
@@ -53,8 +53,8 @@ public class ItemController {
     }
 
     @RequestMapping(value = "/items/edit/{id}", method = RequestMethod.POST)
-    public String editItem(Model model, @PathVariable("id") String id, @RequestParam("nom") String nom, @RequestParam("description") String description, @RequestParam("type") String type, @RequestParam("rarete") String rarete, @RequestParam("levelRequis") Integer levelRequis, @RequestParam("tauxDrop") Float tauxDrop, @RequestParam("durabilite") Integer durabilite, @RequestParam("img") String img) {
-        Item item = new Item(nom, description, type, rarete, levelRequis, tauxDrop, durabilite, img);
+    public String editItem(Model model, @PathVariable("id") String id, @RequestParam("nom") String nom, @RequestParam("description") String description, @RequestParam("type") String type, @RequestParam("rarete") String rarete, @RequestParam("levelRequis") Integer levelRequis, @RequestParam("tauxDrop") Float tauxDrop, @RequestParam("durabilite") Integer durabilite, @RequestParam("img") String img, @RequestParam("attaque") Integer attaque, @RequestParam("defense") Integer defense) {
+        Item item = new Item(nom, description, type, rarete, levelRequis, tauxDrop, durabilite, img, attaque, defense);
         item.setId(id);
 
         itemRepository.save(item);

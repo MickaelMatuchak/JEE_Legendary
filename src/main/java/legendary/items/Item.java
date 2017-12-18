@@ -16,8 +16,10 @@ public class Item implements Serializable {
     private Float tauxDrop;
     private String img;
     private Integer durabilite;
+    private Integer attaque;
+    private Integer defense;
 
-    public Item(String nom, String description, String type, String rarete, Integer levelRequis, Float tauxDrop, Integer durabilite, String img) {
+    public Item(String nom, String description, String type, String rarete, Integer levelRequis, Float tauxDrop, Integer durabilite, String img, Integer attaque, Integer defense) {
         this.nom = nom;
         this.description = description;
         this.type = type;
@@ -26,6 +28,8 @@ public class Item implements Serializable {
         this.tauxDrop = tauxDrop;
         this.img = img;
         this.durabilite = durabilite;
+        this.attaque = attaque;
+        this.defense = defense;
         this.id = new ObjectId().toString();
     }
 
@@ -107,4 +111,22 @@ public class Item implements Serializable {
             this.durabilite = durabilite;
         }
     }
+
+	public Integer getAttaque() {
+		return attaque;
+	}
+
+	public void setAttaque(Integer attaque) {
+		this.attaque = attaque;
+	}
+
+	public Integer getDefense() {
+		return defense;
+	}
+
+	public void setDefense(Integer defense) {
+		this.defense = defense;
+	}
+    
+    
 }
