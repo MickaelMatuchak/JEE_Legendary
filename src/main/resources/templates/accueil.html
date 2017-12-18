@@ -8,11 +8,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body id="index">
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="/">StarWars Editor</a>
         </div>
+
+        <h1>STARWARS Editor</h1>
 
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/">Personnages</a></li>
@@ -20,6 +23,13 @@
         </ul>
     </div>
 </nav>
+
+<div id="items">
+    <h2>Les items disponibles dans la base de données</h2>
+    <a href="/items/add" class="btn btn-success">Créer item</a>
+    <a href="/items">Voir la liste des objets.</a>
+</div>
+
 <div id="personnages">
     <h2>Liste des personnages :</h2>
     <a href="/personnages/add" class="btn btn-success">Créer</a>

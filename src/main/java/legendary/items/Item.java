@@ -1,12 +1,13 @@
 package legendary.items;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
 
 public class Item implements Serializable {
     @Id
-    private long id;
+    private String id;
     private String nom;
     private String description;
     private String type;
@@ -14,8 +15,9 @@ public class Item implements Serializable {
     private Integer levelRequis;
     private Float tauxDrop;
     private String img;
+    private Integer durabilite;
 
-    public Item(String nom, String description, String type, String rarete, Integer levelRequis, Float tauxDrop, String img) {
+    public Item(String nom, String description, String type, String rarete, Integer levelRequis, Float tauxDrop, Integer durabilite, String img) {
         this.nom = nom;
         this.description = description;
         this.type = type;
@@ -23,13 +25,15 @@ public class Item implements Serializable {
         this.levelRequis = levelRequis;
         this.tauxDrop = tauxDrop;
         this.img = img;
+        this.durabilite = durabilite;
+        this.id = new ObjectId().toString();
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -54,7 +58,8 @@ public class Item implements Serializable {
     }
 
     public void setType(String type) {
-        this.type = type;
+        if (type == "combinaison" || type == "arme" || type == "casque")
+            this.type = type;
     }
 
     public String getRarete() {
@@ -62,7 +67,8 @@ public class Item implements Serializable {
     }
 
     public void setRarete(String rarete) {
-        this.rarete = rarete;
+        if (rarete == "commun" || rarete == "rare" || rarete == "epique" || rarete == "legendaire")
+            this.rarete = rarete;
     }
 
     public Integer getLevelRequis() {
@@ -70,7 +76,8 @@ public class Item implements Serializable {
     }
 
     public void setLevelRequis(Integer levelRequis) {
-        this.levelRequis = levelRequis;
+        if (levelRequis >= 1 && levelRequis <= 50)
+            this.levelRequis = levelRequis;
     }
 
     public Float getTauxDrop() {
@@ -87,5 +94,17 @@ public class Item implements Serializable {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public Integer getDurabilite() {
+        return durabilite;
+    }
+
+    public void setDurabilite(Integer durabilite) {
+        if (durabilite < 0) {
+            this.durabilite = 0;
+        } else {
+            this.durabilite = durabilite;
+        }
     }
 }

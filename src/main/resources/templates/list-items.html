@@ -20,17 +20,19 @@
         </ul>
     </div><!-- /.navbar-collapse -->
 </nav>
-<table>
-    <tr>
-        <th>Nom</th>
-        <th>Description</th>
-    </tr>
-    {{#items}}
-    <tr>
-        <td><a href="/items/{{id}}">{{nom}}</a></td>
-        <td>{{description}}</td>
-    </tr>
-    {{/items}}
-</table>
+<h2>Liste des items</h2>
+
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+        </tr>
+        {{#items}}
+            <tr>
+                <td><a href="/items/{{nom}}">{{nom}}</a></td>
+                <td>{{description}}</td>
+            </tr>
+        {{/items}}
+    </table>
 </body>
 </html>

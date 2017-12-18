@@ -3,26 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Detail Item</title>
-    <link href="/styles.css" rel="stylesheet" />
-    <link href="/bootstrap.min.css" rel="stylesheet" />
+    <link href="/styles.css" rel="stylesheet"/>
+    <link href="/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">StarWars Editor</a>
-            </div>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">StarWars Editor</a>
+        </div>
 
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/">Personnages</a></li>
-                <li><a href="/items">Items</a></li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </nav>
-    <h2>Détails : {{item.nom}}</h2>
-    {{item.description}}
-    <button class="btn btn-primary">Modifier</button>
-    <button class="btn btn-danger">Supprimer</button>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Personnages</a></li>
+            <li><a href="/items">Items</a></li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+<h2>Liste des items</h2>
+    <h2>Informations sur : {{item.nom}}</h2>
+    <p><strong>Description : </strong>{{item.description}}</p>
+    <p><strong>type : </strong>{{item.type}}</p>
+    <p><strong>rarete : </strong>{{item.rarete}}</p>
+    <p><strong>levelRequis : </strong>{{item.levelRequis}} minimum</p>
+    <p><strong>tauxDrop : </strong>{{item.tauxDrop}} %</p>
+    <p><strong>Durabilité : </strong>{{item.durabilite}}</p>
+    <p><strong>img : </strong>{{item.img}}</p>
+    <a href="/items/edit/{{item.id}}" class="btn btn-primary">Modifier</a>
+    <a href="/items/delete/{{item.id}}" class="btn btn-danger">Supprimer</a>
 </body>
 </html>

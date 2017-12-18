@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test template</title>
+    <link href="/styles.css" rel="stylesheet" />
+    <link href="/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+	<h2>Modifier : {{item.nom}}</h2>
+
+	<form method="POST" action="#">
+    <label for="nom">Nom de l'item</label>
+    <input type="text" name="nom" id="nom" value="{{item.nom}}"/>
+
+	 <label for="nom">Description courte</label>
+     <textarea rows="4" cols="50" id="description" name="description">
+		{{item.description}}
+	 </textarea> 
+
+    <label for="type">Type</label>
+    <select id="type" name="type">
+        <option value="Combinaison">Combinaison</option>
+        <option value="Arme">Arme</option>
+        <option value="Casque">Casque</option>             
+    </select>
+
+    <label for="rarete">Rareté</label>
+    <select id="rarete" name="rarete">
+        <option value="commun">commun</option>
+        <option value="rare">rare</option>
+        <option value="epique">épique</option>
+        <option value="legendaire">légendaire</option>
+    </select>
+
+    <label for="levelRequis">levelRequis</label>
+    <input type="number" name="levelRequis" id="levelRequis" value="{{item.levelRequis}}" min="0" max="99"/>
+    
+    <label for="tauxDrop">tauxDrop (en %)</label>
+    <input type="text" name="tauxDrop" id="tauxDrop" value="{{item.tauxDrop}}" />
+    
+    <label for="durabilite">durabilite</label>
+    <input type="text" name="durabilite" id="durablite" value="{{item.durabilite}}" />
+
+	<label for="img">image</label>
+    <input type="text" name="img" id="img" value="{{item.img}}" />
+
+    <input type="submit" value="Enregistrer les modifications" class="btn btn-success"/>
+</form>
+
+
+</body>
+</html>
