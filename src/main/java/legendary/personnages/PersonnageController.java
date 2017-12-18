@@ -102,11 +102,28 @@ public class PersonnageController {
         Personnage personnage = new Personnage(proprietaire, pseudo, sexe, classe, level);
 
         if (fetchPersonnage == personnage)
-            return "erreur";
+            return "redirect";
+
+        Item sabre = itemRepository.findByNom("Sabrolaser vert");
+        personnage.setIdSabre(sabre.getId());
+        personnage.setImgSabre(sabre.getImg());
+        personnage.setRareteSabre(sabre.getRarete());
+
+        Item armure = itemRepository.findByNom("Combinaison de Chewbacca");
+        personnage.setIdArmure(armure.getId());
+        personnage.setImgArmure(armure.getImg());
+        personnage.setRareteArmure(armure.getRarete());
+
+        Item casque = itemRepository.findByNom("Casque de Chewbacca");
+        personnage.setIdCasque(casque.getId());
+        personnage.setImgCasque(casque.getImg());
+        personnage.setRareteCasque(casque.getRarete());
+
+        personnage.setAtkStuff(casque.getAttaque() + armure.getAttaque() + sabre.getAttaque());
+        personnage.setDefStuff(casque.getDefense() + armure.getDefense() + sabre.getDefense());
 
         personnageRepository.save(personnage);
-        model.addAttribute("personnage", personnage);
-        return "detail-personnage";
+        return "redirect";
     }
 
     @RequestMapping(value = "/proprietaires/{proprietaire}", method = RequestMethod.GET)
