@@ -48,7 +48,7 @@ input {
 }
 
 .item-box-inner {
-    border: 3px solid lightgray;
+    border: 5px solid lightgray;
 }
 
 select, select:hover, input[type="text"],  input[type="number"], textarea {
@@ -73,23 +73,39 @@ select, select:hover, input[type="text"],  input[type="number"], textarea {
 }
 
 .rarete_commun{
-	border : solid 0.5rem #E6E6E6;
+	border : solid 5px #E6E6E6;
 }
 
 .rarete_rare{
-	border : solid 0.5rem #AEB404;
+	border : solid 5px #AEB404;
 }
 
 .rarete_epique{
-	border : solid 0.5rem #088A4B;
+	border : solid 5px #088A4B;
 }
 
 .rarete_legendaire{
-	border : solid 0.5rem #8A0886;
+	border : solid 5px #8A0886;
 }
 
 .image_item{
-	width:9rem;
+	width: 100px;
+    height: 100px;
+}
+
+.item-details {
+    margin: 20px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+
+.item-details a {
+    vertical-align: top;
+}
+
+.item-details p {
+    display: inline-block;
+    float: right;
 }
 
 /* CSS Dofus */

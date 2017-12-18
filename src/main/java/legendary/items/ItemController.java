@@ -66,8 +66,9 @@ public class ItemController {
     @RequestMapping(value = "/items/delete/{id}", method = RequestMethod.GET)
     public String deleteItem(@PathVariable String id, Model model) {
         Item item = this.itemRepository.findById(id);
-        this.itemRepository.delete(item);
-        return "list-items";
-    }
 
+        this.itemRepository.delete(item);
+
+        return "redirect";
+    }
 }

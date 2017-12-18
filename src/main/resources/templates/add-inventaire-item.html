@@ -5,6 +5,9 @@
     <title>Ajouter Item dans l'inventaire</title>
     <link href="/styles.css" rel="stylesheet"/>
     <link href="/bootstrap.min.css" rel="stylesheet"/>
+    <script src="/jquery-3.2.1.min.js"></script>
+    <script src="/popper.js"></script>
+    <script src="/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -25,20 +28,14 @@
 <h2>Gestion inventaire de : {{personnage.pseudo}}</h2>
 <h2>Place libre : {{personnage.placeLibre}}</h2>
 
-<table>
-    <tr>
-        <th>Nom</th>
-        <th>Description</th>
-    </tr>
-
-    {{#items}}
-    <tr>
-        <td><a href="/items/{{nom}}">{{nom}}</a></td>
-        <td>{{description}}</td>
-        <td><a href="/personnages/{{personnage.pseudo}}/items/add/{{id}}" class="btn btn-success">Ajouter à l'inventaire</a></td>
-    </tr>
-    {{/items}}
-</table>
+{{#items}}
+<div class="item-details">
+    <img src="/img/items/{{img}}" alt="" class="image_item rarete_{{rarete}}">
+    <a href="/items/{{nom}}">{{nom}}</a>
+    <p>{{description}}</p><br>
+    <a href="/personnages/{{personnage.pseudo}}/items/add/{{id}}" class="btn btn-success">Ajouter à l'inventaire</a>
+</div>
+{{/items}}
 
 </body>
 </html>

@@ -5,6 +5,9 @@
     <title>Liste Items</title>
     <link href="/styles.css" rel="stylesheet"/>
     <link href="/bootstrap.min.css" rel="stylesheet"/>
+    <script src="/jquery-3.2.1.min.js"></script>
+    <script src="/popper.js"></script>
+    <script src="/bootstrap.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -25,20 +28,13 @@
     <h2>Liste des items</h2>
     <a href="/items/add" class="btn btn-success">Créer</a>
 
-    <table>
-        <tr>
-            <th>Logo</th>
-            <th>Nom</th>
-            <th>Description</th>
-        </tr>
-        {{#items}}
-        <tr>
-            <td><img src="/img/items/{{img}}" alt="" class="image_item rarete_{{rarete}}"></td>
-            <td><a href="/items/{{nom}}">{{nom}}</a></td>
-            <td>{{description}}</td>
-        </tr>
-        {{/items}}
-    </table>
+    {{#items}}
+    <div class="item-details">
+        <img src="/img/items/{{img}}" alt="" class="image_item rarete_{{rarete}}">
+        <a href="/items/{{nom}}">{{nom}}</a>
+        <p>{{description}}</p>
+    </div>
+    {{/items}}
 </div>
 </body>
 </html>

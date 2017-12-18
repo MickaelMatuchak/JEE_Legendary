@@ -7,7 +7,6 @@ import java.io.Serializable;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Personnage implements Serializable {
     final ArrayList<Double> ratioDefByClass = new ArrayList<>(Arrays.asList(1.0, 0.9, 1.1, 1.5, 1.1, 1.25, 1.3, 1.2));
@@ -31,6 +30,14 @@ public class Personnage implements Serializable {
     private String idCasque;
     private String idArmure;
     private String idSabre;
+
+    private String imgCasque = null;
+    private String imgArmure = null;
+    private String imgSabre = null;
+
+    private String rareteCasque = null;
+    private String rareteArmure = null;
+    private String rareteSabre = null;
 
     private int placeLibre = 10;
 
@@ -342,5 +349,53 @@ public class Personnage implements Serializable {
             this.idInventaire10 = null;
             this.placeLibre++;
         }
+    }
+
+    public String getImgCasque() {
+        return imgCasque;
+    }
+
+    public void setImgCasque(String imgCasque) {
+        this.imgCasque = imgCasque;
+    }
+
+    public String getImgArmure() {
+        return imgArmure;
+    }
+
+    public void setImgArmure(String imgArmure) {
+        this.imgArmure = imgArmure;
+    }
+
+    public String getImgSabre() {
+        return imgSabre;
+    }
+
+    public void setImgSabre(String imgSabre) {
+        this.imgSabre = imgSabre;
+    }
+
+    public String getRareteCasque() {
+        return rareteCasque;
+    }
+
+    public void setRareteCasque(String rareteCasque) {
+        this.rareteCasque = rareteCasque;
+    }
+
+    public String getRareteArmure() {
+        return rareteArmure;
+    }
+
+    public void setRareteArmure(String rareteArmure) {
+        this.rareteArmure = rareteArmure;
+    }
+
+    public String getRareteSabre() {
+        return rareteSabre;
+    }
+
+    public void setRareteSabre(String rareteSabre) {
+        this.rareteSabre = rareteSabre;
     }
 }

@@ -5,6 +5,9 @@
     <title>Detail Item</title>
     <link href="/styles.css" rel="stylesheet"/>
     <link href="/bootstrap.min.css" rel="stylesheet"/>
+    <script src="/jquery-3.2.1.min.js"></script>
+    <script src="/popper.js"></script>
+    <script src="/bootstrap.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -22,16 +25,18 @@
 </nav>
 
 <h2>Liste des items</h2>
-    <h2>Informations sur : {{item.nom}}</h2>
-    <p><strong>Description : </strong>{{item.description}}</p>
-    <p><strong>type : </strong>{{item.type}}</p>
-    <p><strong>rarete : </strong>{{item.rarete}}</p>
-    <p><strong>levelRequis : </strong>{{item.levelRequis}} minimum</p>
-    <p><strong>tauxDrop : </strong>{{item.tauxDrop}} %</p>
-    <p><strong>Durabilité : </strong>{{item.durabilite}}</p>
-    <p><strong>Image : </strong></p>
-    <p><img src="/img/items/{{item.img}}" alt="" class="image_item rarete_{{item.rarete}}"/></p>
-    <a href="/items/edit/{{item.id}}" class="btn btn-primary">Modifier</a>
-    <a href="/items/delete/{{item.id}}" class="btn btn-danger">Supprimer</a>
+<h2>Informations sur : {{item.nom}}</h2>
+
+<p><img src="/img/items/{{item.img}}" alt="" class="image_item rarete_{{item.rarete}}"/></p>
+
+<p><strong>Description : </strong>{{item.description}}</p>
+<p><strong>Type : </strong>{{item.type}}</p>
+<p><strong>Rarete : </strong>{{item.rarete}}</p>
+<p><strong>Level requis : </strong>{{item.levelRequis}} minimum</p>
+<p><strong>Taux de drop : </strong>{{item.tauxDrop}} %</p>
+<p><strong>Durabilité : </strong>{{item.durabilite}}</p>
+
+<a href="/items/edit/{{item.id}}" class="btn btn-primary">Modifier</a>
+<a href="/items/delete/{{item.id}}" class="btn btn-danger">Supprimer</a>
 </body>
 </html>
