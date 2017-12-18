@@ -141,6 +141,8 @@ public class ItemController {
         }
 
         model.addAttribute("items", items);
+        model.addAttribute("item1", item1);
+        model.addAttribute("item2", item2);
 
         return "form-craft-item";
 

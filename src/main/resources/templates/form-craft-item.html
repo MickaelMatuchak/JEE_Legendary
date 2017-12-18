@@ -46,13 +46,16 @@
     </select>
     </div>
 
-    <button class="btn btn-primary btn-lg">Crafter</button>
+    <button class="btn btn-success btn-lg">Crafter</button>
 </form>
 {{#item3}}
 <h1>Objet crafté :</h1>
 
-<h2>Nom : {{nom}}</h2>
-<h2>Rareté : {{rarete}}</h2>
+<p><img src="/img/items/{{item1.img}}" alt="" class="image_item rarete_{{item1.rarete}}"/> + <img src="/img/items/{{item2.img}}" alt="" class="image_item rarete_{{item2.rarete}}"/> = </p>
+<div class="item-details">
+    <img src="/img/items/{{item3.img}}" alt="" class="image_item rarete_{{item3.rarete}}"/>
+    <a href="/items/{{item3.nom}}">{{item3.nom}}</a>
+</div>
 {{/item3}}
 
 {{#erreur}}
