@@ -33,9 +33,9 @@
 
     {{#items}}
     <tr>
-        <td><a href="/items/{{id}}">{{nom}}</a></td>
+        <td><a href="/items/{{nom}}">{{nom}}</a></td>
         <td>{{description}}</td>
-        <a href="/personnages/{pseudo}/items/add/{id}" class="btn btn-success">Equiper</a>
+        <td><a href="/personnages/{{personnage.pseudo}}/items/add/{{id}}" class="btn btn-success">Equiper</a></td>
     </tr>
     {{/items}}
 </table>

@@ -1,5 +1,6 @@
 package legendary;
 
+import legendary.items.Item;
 import legendary.personnages.Personnage;
 import legendary.items.ItemRepository;
 import legendary.personnages.PersonnageRepository;
@@ -25,6 +26,8 @@ public class Application {
             personnageRepository.save(new Personnage("Theophile", "TheoDarky", 'M',"Contrebandier", 35));
             personnageRepository.save(new Personnage("Benjamin", "BenjiSith", 'F',"Guerrier Sith", 1));
             personnageRepository.save(new Personnage("Mickael", "MickaVador", 'M',"Chevalier Jedi", 50));
+
+            itemRepository.save(new Item("Arc de chasse", "Donné par votre maitre", "Arme", "Commun", 1, (float) 50.00, 100, "https://media.dofusplanner.com/hat/allisters_crown.png"));
 
             /*
             itemRepository.save(new Item(1, "Arc de chasse", "Donné par votre maitre", "Arme", "Commun", 1));

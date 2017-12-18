@@ -34,6 +34,60 @@ public class PersonnageController {
         Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
 
         model.addAttribute("personnage", personnage);
+
+        Item item1 = new Item("", "", "", "", 0, (float) 0, 0, "");
+        Item item2 = new Item("", "", "", "", 0, (float) 0, 0, "");
+        Item item3 = new Item("", "", "", "", 0, (float) 0, 0, "");
+        Item item4 = new Item("", "", "", "", 0, (float) 0, 0, "");
+        Item item5 = new Item("", "", "", "", 0, (float) 0, 0, "");
+        Item item6 = new Item("", "", "", "", 0, (float) 0, 0, "");
+        Item item7 = new Item("", "", "", "", 0, (float) 0, 0, "");
+        Item item8 = new Item("", "", "", "", 0, (float) 0, 0, "");
+        Item item9 = new Item("", "", "", "", 0, (float) 0, 0, "");
+        Item item10 = new Item("", "", "", "", 0, (float) 0, 0, "");
+
+        if (personnage.getIdInventaire1() != null) {
+            item1 = this.itemRepository.findById(personnage.getIdInventaire1());
+        }
+        if (personnage.getIdInventaire2() != null) {
+            item2 = this.itemRepository.findById(personnage.getIdInventaire2());
+        }
+        if (personnage.getIdInventaire3() != null) {
+            item3 = this.itemRepository.findById(personnage.getIdInventaire3());
+        }
+        if (personnage.getIdInventaire4() != null) {
+            item4 = this.itemRepository.findById(personnage.getIdInventaire4());
+        }
+        if (personnage.getIdInventaire5() != null) {
+            item5 = this.itemRepository.findById(personnage.getIdInventaire5());
+        }
+        if (personnage.getIdInventaire6() != null) {
+            item6 = this.itemRepository.findById(personnage.getIdInventaire6());
+        }
+        if (personnage.getIdInventaire7() != null) {
+            item7 = this.itemRepository.findById(personnage.getIdInventaire7());
+        }
+        if (personnage.getIdInventaire8() != null) {
+            item8 = this.itemRepository.findById(personnage.getIdInventaire8());
+        }
+        if (personnage.getIdInventaire9() != null) {
+            item9 = this.itemRepository.findById(personnage.getIdInventaire9());
+        }
+        if (personnage.getIdInventaire10() != null) {
+            item10 = this.itemRepository.findById(personnage.getIdInventaire10());
+        }
+
+        model.addAttribute("item1", item1);
+        model.addAttribute("item2", item2);
+        model.addAttribute("item3", item3);
+        model.addAttribute("item4", item4);
+        model.addAttribute("item5", item5);
+        model.addAttribute("item6", item6);
+        model.addAttribute("item7", item7);
+        model.addAttribute("item8", item8);
+        model.addAttribute("item9", item9);
+        model.addAttribute("item10", item10);
+
         return "detail-personnage";
     }
 
@@ -104,15 +158,14 @@ public class PersonnageController {
         List<Item> items = this.itemRepository.findAll();
 
         model.addAttribute(personnage);
-        model.addAttribute(items);
+        model.addAttribute("items", items);
 
         return "add-inventaire-item";
     }
 
-    @RequestMapping(value = "/personnages/{pseudo}/items/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/personnages/{pseudo}/items/add/{id}", method = RequestMethod.GET)
     public String addItemPersonnage(Model model, @PathVariable String pseudo, @PathVariable String id) {
         Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
-        Item item = this.itemRepository.findById(id);
 
         personnage.addInventaire(id);
 
@@ -122,17 +175,10 @@ public class PersonnageController {
     }
 
     @RequestMapping(value = "/personnages/{pseudo}/items/delete/{id}", method = RequestMethod.GET)
-    public String addItemPersonnage(@PathVariable String pseudo, @PathVariable String id) {
+    public String deleteItemPersonnage(@PathVariable String pseudo, @PathVariable String id) {
         Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
 
-        String methodToCall = "setIdInventaire" + id;
-
-        try {
-            personnage.getClass().getMethod(methodToCall, null);
-            personnage.setPlaceLibre(personnage.getPlaceLibre() - 1);
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        }
+        personnage.deletePlaceInventaire(Integer.parseInt(id));
 
         personnageRepository.save(personnage);
 

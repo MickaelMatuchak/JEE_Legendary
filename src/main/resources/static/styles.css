@@ -62,10 +62,9 @@ select, select:hover, input[type="text"],  input[type="number"], textarea {
 }
 
 .logo-item {
-    width: 30px;
-    height: 30px;
+    width: 100px;
+    height: 100px;
     background-color: lightgray;
-    border: 3px solid black;
 }
 
 #content_inventaire {

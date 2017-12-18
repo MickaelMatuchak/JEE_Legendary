@@ -32,19 +32,18 @@ public class Personnage implements Serializable {
     private String idArmure;
     private String idSabre;
 
-    private List<Integer> placeOccupee = new ArrayList<>();
     private int placeLibre = 10;
 
-    private String idInventaire1;
-    private String idInventaire2;
-    private String idInventaire3;
-    private String idInventaire4;
-    private String idInventaire5;
-    private String idInventaire6;
-    private String idInventaire7;
-    private String idInventaire8;
-    private String idInventaire9;
-    private String idInventaire10;
+    private String idInventaire1 = null;
+    private String idInventaire2 = null;
+    private String idInventaire3 = null;
+    private String idInventaire4 = null;
+    private String idInventaire5 = null;
+    private String idInventaire6 = null;
+    private String idInventaire7 = null;
+    private String idInventaire8 = null;
+    private String idInventaire9 = null;
+    private String idInventaire10 = null;
 
 
     public Personnage(String proprietaire, String pseudo, Character sexe, String classe, Integer level) {
@@ -286,38 +285,54 @@ public class Personnage implements Serializable {
     public void addInventaire(String idItem) {
         if (this.idInventaire1 == null) {
             this.idInventaire1 = idItem;
-            this.placeOccupee.add(1);
         } else if (this.idInventaire2 == null) {
             this.idInventaire2 = idItem;
-            this.placeOccupee.add(2);
         } else if (this.idInventaire3 == null) {
             this.idInventaire3 = idItem;
-            this.placeOccupee.add(3);
         } else if (this.idInventaire4 == null) {
             this.idInventaire4 = idItem;
-            this.placeOccupee.add(4);
         } else if (this.idInventaire5 == null) {
             this.idInventaire5 = idItem;
-            this.placeOccupee.add(5);
         } else if (this.idInventaire6 == null) {
             this.idInventaire6 = idItem;
-            this.placeOccupee.add(6);
         } else if (this.idInventaire7 == null) {
             this.idInventaire7 = idItem;
-            this.placeOccupee.add(7);
         } else if (this.idInventaire8 == null) {
             this.idInventaire8 = idItem;
-            this.placeOccupee.add(8);
         } else if (this.idInventaire9 == null) {
             this.idInventaire9 = idItem;
-            this.placeOccupee.add(9);
         } else if (this.idInventaire10 == null) {
             this.idInventaire10 = idItem;
-            this.placeOccupee.add(10);
         } else {
             this.placeLibre++;
         }
 
         this.placeLibre--;
+    }
+
+    public void deletePlaceInventaire(int placeId) {
+        if (placeId == 1) {
+            this.idInventaire1 = null;
+        } else if (placeId == 2) {
+            this.idInventaire2 = null;
+        } else if (placeId == 3) {
+            this.idInventaire3 = null;
+        } else if (placeId == 4) {
+            this.idInventaire4 = null;
+        } else if (placeId == 5) {
+            this.idInventaire5 = null;
+        } else if (placeId == 6) {
+            this.idInventaire6 = null;
+        } else if (placeId == 7) {
+            this.idInventaire7 = null;
+        } else if (placeId == 8) {
+            this.idInventaire8 = null;
+        } else if (placeId == 9) {
+            this.idInventaire9 = null;
+        } else if (placeId == 10) {
+            this.idInventaire10 = null;
+        }
+
+        this.placeLibre++;
     }
 }
