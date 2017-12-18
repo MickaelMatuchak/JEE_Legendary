@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+
 @Controller
 public class PersonnageController {
 
@@ -97,7 +98,7 @@ public class PersonnageController {
     }
 
     @RequestMapping(value = "/personnages/{pseudo}/items/add", method = RequestMethod.GET)
-    public String addItemPersonnage(Model model, @PathVariable String pseudo) {
+    public String fetchAllItems(Model model, @PathVariable String pseudo) {
         Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
 
         List<Item> items = this.itemRepository.findAll();
@@ -106,6 +107,18 @@ public class PersonnageController {
         model.addAttribute(items);
 
         return "add-inventaire-item";
+    }
+
+    @RequestMapping(value = "/personnages/{pseudo}/items/{id}", method = RequestMethod.GET)
+    public String addItemPersonnage(Model model, @PathVariable String pseudo, @PathVariable String id) {
+        Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
+        Item item = this.itemRepository.findById(id);
+
+        personnage.addInventaire(id);
+
+        personnageRepository.save(personnage);
+
+        return "redirect";
     }
 
     @RequestMapping(value = "/personnages/{pseudo}/items/delete/{id}", method = RequestMethod.GET)

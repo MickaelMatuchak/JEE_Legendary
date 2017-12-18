@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Personnage implements Serializable {
     final ArrayList<Double> ratioDefByClass = new ArrayList<>(Arrays.asList(1.0, 0.9, 1.1, 1.5, 1.1, 1.25, 1.3, 1.2));
@@ -31,6 +32,7 @@ public class Personnage implements Serializable {
     private String idArmure;
     private String idSabre;
 
+    private List<Integer> placeOccupee = new ArrayList<>();
     private int placeLibre = 10;
 
     private String idInventaire1;
@@ -279,5 +281,43 @@ public class Personnage implements Serializable {
 
     public void setIdInventaire10(String idInventaire10) {
         this.idInventaire10 = idInventaire10;
+    }
+
+    public void addInventaire(String idItem) {
+        if (this.idInventaire1 == null) {
+            this.idInventaire1 = idItem;
+            this.placeOccupee.add(1);
+        } else if (this.idInventaire2 == null) {
+            this.idInventaire2 = idItem;
+            this.placeOccupee.add(2);
+        } else if (this.idInventaire3 == null) {
+            this.idInventaire3 = idItem;
+            this.placeOccupee.add(3);
+        } else if (this.idInventaire4 == null) {
+            this.idInventaire4 = idItem;
+            this.placeOccupee.add(4);
+        } else if (this.idInventaire5 == null) {
+            this.idInventaire5 = idItem;
+            this.placeOccupee.add(5);
+        } else if (this.idInventaire6 == null) {
+            this.idInventaire6 = idItem;
+            this.placeOccupee.add(6);
+        } else if (this.idInventaire7 == null) {
+            this.idInventaire7 = idItem;
+            this.placeOccupee.add(7);
+        } else if (this.idInventaire8 == null) {
+            this.idInventaire8 = idItem;
+            this.placeOccupee.add(8);
+        } else if (this.idInventaire9 == null) {
+            this.idInventaire9 = idItem;
+            this.placeOccupee.add(9);
+        } else if (this.idInventaire10 == null) {
+            this.idInventaire10 = idItem;
+            this.placeOccupee.add(10);
+        } else {
+            this.placeLibre++;
+        }
+
+        this.placeLibre--;
     }
 }
