@@ -87,7 +87,6 @@ public class Item implements Serializable {
     public Float getTauxDrop() {
         return tauxDrop;
     }
-
     public void setTauxDrop(Float tauxDrop) {
         this.tauxDrop = tauxDrop;
     }

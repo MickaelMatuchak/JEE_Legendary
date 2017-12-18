@@ -4,6 +4,8 @@ import legendary.items.Item;
 import legendary.personnages.Personnage;
 import legendary.items.ItemRepository;
 import legendary.personnages.PersonnageRepository;
+import legendary.users.User;
+import legendary.users.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,7 +22,7 @@ public class Application {
     }
 
     @Bean
-    public CommandLineRunner demo(PersonnageRepository personnageRepository, ItemRepository itemRepository) {
+    public CommandLineRunner demo(PersonnageRepository personnageRepository, ItemRepository itemRepository, UserRepository userRepository) {
         return (args) -> {
 
             Personnage theo = new Personnage("Theophile", "TheoDarky", 'M',"Contrebandier", 35);
@@ -79,6 +81,10 @@ public class Application {
             personnageRepository.save(theo);
             personnageRepository.save(benj);
             personnageRepository.save(mick);
+
+            userRepository.save(new User("Theophile", "azerty"));
+            userRepository.save(new User("Benjamin", "azerty"));
+            userRepository.save(new User("Mickael", "azerty"));
         };
     }
 }

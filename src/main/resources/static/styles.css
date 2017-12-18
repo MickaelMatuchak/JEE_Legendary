@@ -51,7 +51,7 @@ input {
     border: 5px solid lightgray;
 }
 
-select, select:hover, input[type="text"],  input[type="number"], textarea {
+select, select:hover, input[type="text"],  input[type="number"], input[type="password"], textarea {
     background-color: rgb(220, 220, 220) !important;
     border: 2px solid black !important;
 }

@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Liste Items</title>
+    <title>Craft Item</title>
     <link href="/styles.css" rel="stylesheet"/>
     <link href="/bootstrap.min.css" rel="stylesheet"/>
     <script src="/jquery-3.2.1.min.js"></script>
@@ -23,19 +23,40 @@
         </ul>
     </div><!-- /.navbar-collapse -->
 </nav>
-<div id="personnages">
 
-    <h2>Liste des items</h2>
-    <a href="/items/add" class="btn btn-success">Créer</a>
-    <a href="/items/craft" class="btn btn-primary">Craft</a>
+<h2>Simulateur de craft</h2>
+<h2>Que la force soit avec vous</h2>
 
-    {{#items}}
-    <div class="item-details">
-        <img src="/img/items/{{img}}" alt="" class="image_item rarete_{{rarete}}">
-        <a href="/items/{{nom}}">{{nom}}</a>
-        <p>{{description}}</p>
+<form action="/items/craft/result" method="POST">
+    <div>
+        <label for="nom1">Nom de l'item 1</label>
+        <select id="nom1" name="nom1">
+            {{#items}}
+            <option value="{{nom}}">{{nom}}</option>
+            {{/items}}
+        </select>
     </div>
-    {{/items}}
-</div>
+
+    </div>
+    <label for="nom2">Nom de l'item 2</label>
+    <select id="nom2" name="nom2">
+        {{#items}}
+        <option value="{{nom}}">{{nom}}</option>
+        {{/items}}
+    </select>
+    </div>
+
+    <button class="btn btn-primary btn-lg">Crafter</button>
+</form>
+{{#item3}}
+<h1>Objet crafté :</h1>
+
+<h2>Nom : {{nom}}</h2>
+<h2>Rareté : {{rarete}}</h2>
+{{/item3}}
+
+{{#erreur}}
+{{erreur}}
+{{/erreur}}
 </body>
 </html>
