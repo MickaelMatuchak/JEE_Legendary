@@ -25,11 +25,25 @@ public class Personnage implements Serializable {
     private Double maitrise = 10.0;
     private Double endurance = 12.0;
     private Double puissance = 8.0;
-    private Double defense = 12.0;
+    private Double defense = 14.0;
 
     private String idCasque;
     private String idArmure;
     private String idSabre;
+
+    private int placeLibre = 10;
+
+    private String idInventaire1;
+    private String idInventaire2;
+    private String idInventaire3;
+    private String idInventaire4;
+    private String idInventaire5;
+    private String idInventaire6;
+    private String idInventaire7;
+    private String idInventaire8;
+    private String idInventaire9;
+    private String idInventaire10;
+
 
     public Personnage(String proprietaire, String pseudo, Character sexe, String classe, Integer level) {
         this.id = new ObjectId().toString();
@@ -39,10 +53,10 @@ public class Personnage implements Serializable {
         this.setClasse(classe);
         this.setLevel(level);
 
-        this.setMaitrise();
-        this.setEndurance();
         this.setPuissance();
         this.setDefense();
+        this.setMaitrise();
+        this.setEndurance();
     }
 
     public String getId() {
@@ -92,7 +106,7 @@ public class Personnage implements Serializable {
         urlImg = Normalizer.normalize(urlImg, Normalizer.Form.NFD);
         urlImg = urlImg.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
 
-        urlImg = urlImg.replaceAll("\\s","-" );
+        urlImg = urlImg.replaceAll("\\s", "-");
         this.setUrlImage(urlImg);
     }
 
@@ -102,7 +116,7 @@ public class Personnage implements Serializable {
 
     public void setLevel(Integer level) {
         if (level >= 1 && level <= 50)
-        this.level = level;
+            this.level = level;
     }
 
     public String getUrlImage() {
@@ -142,7 +156,7 @@ public class Personnage implements Serializable {
     }
 
     public void setMaitrise() {
-        this.maitrise = level * ratioAttByClass.get(getIndexClasses());
+        this.maitrise = Math.round(this.maitrise * (level * ratioAttByClass.get(getIndexClasses())) * 10.0) / 10.0;
     }
 
     public Double getEndurance() {
@@ -150,7 +164,7 @@ public class Personnage implements Serializable {
     }
 
     public void setEndurance() {
-        this.endurance = level * ratioDefByClass.get(getIndexClasses());
+        this.endurance = Math.round(this.endurance * (level * ratioDefByClass.get(getIndexClasses())) * 10.0) / 10.0;
     }
 
     public Double getPuissance() {
@@ -158,7 +172,7 @@ public class Personnage implements Serializable {
     }
 
     public void setPuissance() {
-        this.puissance = level * ratioAttByClass.get(getIndexClasses());
+        this.puissance = Math.round(this.puissance * (level * ratioAttByClass.get(getIndexClasses())) * 10.0) / 10.0;
     }
 
     public Double getDefense() {
@@ -166,7 +180,7 @@ public class Personnage implements Serializable {
     }
 
     public void setDefense() {
-        this.defense = level * ratioDefByClass.get(getIndexClasses());
+        this.defense = Math.round(this.defense * (level * ratioDefByClass.get(getIndexClasses())) * 10.0) / 10.0;
     }
 
     public Integer getIndexClasses() {
@@ -177,5 +191,93 @@ public class Personnage implements Serializable {
                 index = i;
 
         return index;
+    }
+
+    public int getPlaceLibre() {
+        return placeLibre;
+    }
+
+    public void setPlaceLibre(int placeLibre) {
+        this.placeLibre = placeLibre;
+    }
+
+    public String getIdInventaire1() {
+        return idInventaire1;
+    }
+
+    public void setIdInventaire1(String idInventaire1) {
+        this.idInventaire1 = idInventaire1;
+    }
+
+    public String getIdInventaire2() {
+        return idInventaire2;
+    }
+
+    public void setIdInventaire2(String idInventaire2) {
+        this.idInventaire2 = idInventaire2;
+    }
+
+    public String getIdInventaire3() {
+        return idInventaire3;
+    }
+
+    public void setIdInventaire3(String idInventaire3) {
+        this.idInventaire3 = idInventaire3;
+    }
+
+    public String getIdInventaire4() {
+        return idInventaire4;
+    }
+
+    public void setIdInventaire4(String idInventaire4) {
+        this.idInventaire4 = idInventaire4;
+    }
+
+    public String getIdInventaire5() {
+        return idInventaire5;
+    }
+
+    public void setIdInventaire5(String idInventaire5) {
+        this.idInventaire5 = idInventaire5;
+    }
+
+    public String getIdInventaire6() {
+        return idInventaire6;
+    }
+
+    public void setIdInventaire6(String idInventaire6) {
+        this.idInventaire6 = idInventaire6;
+    }
+
+    public String getIdInventaire7() {
+        return idInventaire7;
+    }
+
+    public void setIdInventaire7(String idInventaire7) {
+        this.idInventaire7 = idInventaire7;
+    }
+
+    public String getIdInventaire8() {
+        return idInventaire8;
+    }
+
+    public void setIdInventaire8(String idInventaire8) {
+        this.idInventaire8 = idInventaire8;
+    }
+
+    public String getIdInventaire9() {
+        return idInventaire9;
+    }
+
+    public void setIdInventaire9(String idInventaire9) {
+        this.idInventaire9 = idInventaire9;
+    }
+
+    public String getIdInventaire10() {
+        return idInventaire10;
+    }
+
+    public void setIdInventaire10(String idInventaire10) {
+        this.idInventaire10 = idInventaire10;
     }
 }

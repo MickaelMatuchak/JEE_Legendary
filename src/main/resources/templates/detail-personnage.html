@@ -2,93 +2,167 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Test template</title>
-    <link href="/styles.css" rel="stylesheet" />
-    <link href="/bootstrap.min.css" rel="stylesheet" />
+    <title>Detail Personnage</title>
+    <link href="/styles.css" rel="stylesheet"/>
+    <link href="/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">StarWars Editor</a>
-            </div>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">StarWars Editor</a>
+        </div>
 
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/">Personnages</a></li>
-                <li><a href="/items">Items</a></li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </nav>
-    <h2>Détails : {{personnage.pseudo}}</h2>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Personnages</a></li>
+            <li><a href="/items">Items</a></li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+<h2>Détails : {{personnage.pseudo}}</h2>
 
-    {{#personnage}}
-    <div class="activity">
-        <div class="activity-bar">
-            <div class="main-bar">
-                <div class="description">
-                    <div class="headline">#{{id}} <a class="profile-link" href="/personnages/{{pseudo}}">{{pseudo}}</a>
-                        par <a class="profile-link" href="/proprietaires/{{proprietaire}}">{{proprietaire}}</a>
-                    </div>
+{{#personnage}}
+<div class="activity">
+    <div class="activity-bar">
+        <div class="main-bar">
+            <div class="description">
+                <div class="headline">#{{id}} <a class="profile-link" href="/personnages/{{pseudo}}">{{pseudo}}</a>
+                    par <a class="profile-link" href="/proprietaires/{{proprietaire}}">{{proprietaire}}</a>
                 </div>
             </div>
         </div>
-        <div class="set-preview">
-            <div class="mini-set">
-                <div class="item-column">
-                    <div class="item-box">
-                        <div class="item-box-inner"
-                             style="background: url(&quot;https://media.dofusplanner.com/belt/belteen.png&quot;) center center / 30px 30px no-repeat;"></div>
-                    </div>
-                    <div class="item-box">
-                        <div class="item-box-inner"
-                             style="background: url(&quot;https://media.dofusplanner.com/boots/slothful_slippers.png&quot;) center center / 30px 30px no-repeat;"></div>
-                    </div>
+    </div>
+    <div class="set-preview">
+        <div class="mini-set">
+            <div class="item-column">
+                <div class="item-box">
+                    <div class="item-box-inner"
+                         style="background: url(&quot;https://media.dofusplanner.com/belt/belteen.png&quot;) center center / 30px 30px no-repeat;"></div>
                 </div>
-                <div class="sprite">
-                    <div class="profile-avatar {{sexe}}" style="height: 235px; width: 235px;">
-                        <div style="border-radius: 5px; height: 235px; width: 235px;">
-                            <img src="/img/{{urlImage}}.jpg" alt="Personnage">
-                        </div>
-                    </div>
+                <div class="item-box">
+                    <div class="item-box-inner"
+                         style="background: url(&quot;https://media.dofusplanner.com/boots/slothful_slippers.png&quot;) center center / 30px 30px no-repeat;"></div>
                 </div>
-                <div class="item-column">
-                    <div class="item-box">
-                        <div class="item-box-inner"
-                             style="background: url(&quot;https://media.dofusplanner.com/hat/allisters_crown.png&quot;) center center / 30px 30px no-repeat;"></div>
+            </div>
+            <div class="sprite">
+                <div class="profile-avatar {{sexe}}" style="height: 235px; width: 235px;">
+                    <div style="border-radius: 5px; height: 235px; width: 235px;">
+                        <img src="/img/{{urlImage}}.jpg" alt="Personnage">
                     </div>
                 </div>
             </div>
+            <div class="item-column">
+                <div class="item-box">
+                    <div class="item-box-inner"
+                         style="background: url(&quot;https://media.dofusplanner.com/hat/allisters_crown.png&quot;) center center / 30px 30px no-repeat;"></div>
+                </div>
+            </div>
+        </div>
 
-            <div class="info">
-                <div class="name" title="Niveau {{level}} {{classe}}">Niveau {{level}} - {{classe}}</div>
-                <div class="info-inner-container">
-                    <div class="stats">
-                        <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/agility.png">
-                            <div class="stat-holder">Maitrise</div>
-                            <div class="stat-value">{{maitrise}}</div>
-                        </div>
-                        <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/vitality.png">
-                            <div class="stat-holder">Endurance</div>
-                            <div class="stat-value">{{endurance}}</div>
-                        </div>
-                        <div class="stat"><img
-                                src="https://static.dofusplanner.com/website/images/stats/intelligence.png">
-                            <div class="stat-holder">Puissance</div>
-                            <div class="stat-value">{{puissance}}</div>
-                        </div>
-                        <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/chance.png">
-                            <div class="stat-holder">Défense</div>
-                            <div class="stat-value">{{defense}}</div>
-                        </div>
+        <div class="info">
+            <div class="name" title="Niveau {{level}} {{classe}}">Niveau {{level}} - {{classe}}</div>
+            <div class="info-inner-container">
+                <div class="stats">
+                    <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/agility.png">
+                        <div class="stat-holder">Maitrise</div>
+                        <div class="stat-value">{{maitrise}}</div>
+                    </div>
+                    <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/vitality.png">
+                        <div class="stat-holder">Endurance</div>
+                        <div class="stat-value">{{endurance}}</div>
+                    </div>
+                    <div class="stat"><img
+                            src="https://static.dofusplanner.com/website/images/stats/intelligence.png">
+                        <div class="stat-holder">Puissance</div>
+                        <div class="stat-value">{{puissance}}</div>
+                    </div>
+                    <div class="stat"><img src="https://static.dofusplanner.com/website/images/stats/chance.png">
+                        <div class="stat-holder">Défense</div>
+                        <div class="stat-value">{{defense}}</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<a href="/personnages/modify/{{pseudo}}" class="btn btn-primary">Modifier</a>
+<a href="/personnages/delete/{{pseudo}}" class="btn btn-danger">Supprimer</a>
 
-    <a href="/personnages/modify/{{pseudo}}"class="btn btn-primary">Modifier</a>
-    <a href="/personnages/delete/{{pseudo}}" class="btn btn-danger">Supprimer</a>
-    {{/personnage}}
+<div id="content_inventaire">
+
+    <h3>Inventaire</h3>
+
+    <div class="inventaire">
+        <div class="item i01">
+            <div class="logo-item">
+            </div>
+
+            <a href="/personnages/{{personnage.pseudo}}/items/delete/1">Delete</a>
+        </div>
+        <div class="item i02">
+            <div class="logo-item">
+            </div>
+
+            <a href="/personnages/{{personnage.pseudo}}/items/delete/2">Delete</a>
+        </div>
+        <div class="item i03">
+            <div class="logo-item">
+            </div>
+
+            <a href="/personnages/{{personnage.pseudo}}/items/delete/3">Delete</a>
+        </div>
+        <div class="item i04">
+            <div class="logo-item">
+            </div>
+
+            <a href="/personnages/{{personnage.pseudo}}/items/delete/4">Delete</a>
+        </div>
+        <div class="item i05">
+            <div class="logo-item">
+            </div>
+
+            <a href="/personnages/{{personnage.pseudo}}/items/delete/5">Delete</a>
+        </div>
+    </div>
+    <div class="inventaire">
+        <div class="item i06">
+            <div class="logo-item">
+            </div>
+
+            <a href="/personnages/{{personnage.pseudo}}/items/delete/6">Delete</a>
+        </div>
+        <div class="item i07">
+            <div class="logo-item">
+            </div>
+
+            <a href="/personnages/{{personnage.pseudo}}/items/delete/7">Delete</a>
+        </div>
+        <div class="item i08">
+            <div class="logo-item">
+            </div>
+
+            <a href="/personnages/{{personnage.pseudo}}/items/delete/8">Delete</a>
+        </div>
+        <div class="item i09">
+            <div class="logo-item">
+            </div>
+
+            <a href="/personnages/{{personnage.pseudo}}/items/delete/9">Delete</a>
+        </div>
+        <div class="item i10">
+            <div class="logo-item">
+            </div>
+
+            <a href="/personnages/{{personnage.pseudo}}/items/delete/10">Delete</a>
+        </div>
+    </div>
+</div>
+
+<div class="center">
+    <a href="/personnages/{{personnage.pseudo}}/items/add" class="btn btn-warning" style="color:white">Ajouter un item dans
+        l'inventaire</a>
+</div>
+{{/personnage}}
 </body>
 </html>

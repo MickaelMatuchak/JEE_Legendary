@@ -1,5 +1,7 @@
 package legendary.personnages;
 
+import legendary.items.Item;
+import legendary.items.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,12 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-
 @Controller
 public class PersonnageController {
 
     @Autowired
     private PersonnageRepository personnageRepository;
+    @Autowired
+    private ItemRepository itemRepository;
 
     // Liste des personnages
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -89,6 +92,36 @@ public class PersonnageController {
         personnage.setLevel(level);
 
         this.personnageRepository.save(personnage);
+
+        return "redirect";
+    }
+
+    @RequestMapping(value = "/personnages/{pseudo}/items/add", method = RequestMethod.GET)
+    public String addItemPersonnage(Model model, @PathVariable String pseudo) {
+        Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
+
+        List<Item> items = this.itemRepository.findAll();
+
+        model.addAttribute(personnage);
+        model.addAttribute(items);
+
+        return "add-inventaire-item";
+    }
+
+    @RequestMapping(value = "/personnages/{pseudo}/items/delete/{id}", method = RequestMethod.GET)
+    public String addItemPersonnage(@PathVariable String pseudo, @PathVariable String id) {
+        Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
+
+        String methodToCall = "setIdInventaire" + id;
+
+        try {
+            personnage.getClass().getMethod(methodToCall, null);
+            personnage.setPlaceLibre(personnage.getPlaceLibre() - 1);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+
+        personnageRepository.save(personnage);
 
         return "redirect";
     }

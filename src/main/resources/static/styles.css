@@ -13,6 +13,11 @@ h1, h2 {
     text-align: center;
 }
 
+.center {
+    margin: auto;
+    text-align: center;
+}
+
 #personnages {
     width: 80%;
     margin: 0 auto 50px;
@@ -44,6 +49,28 @@ input {
 
 .item-box-inner {
     border: 3px solid lightgray;
+}
+
+select, select:hover, input[type="text"],  input[type="number"] {
+    background-color: rgb(220, 220, 220) !important;
+    border: 2px solid black !important;
+}
+
+.item {
+    margin: 5px;
+    display: inline-block;
+}
+
+.logo-item {
+    width: 30px;
+    height: 30px;
+    background-color: lightgray;
+    border: 3px solid black;
+}
+
+#content_inventaire {
+    margin-top: 45px;
+    text-align: center;
 }
 
 /* CSS Dofus */

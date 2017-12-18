@@ -2,10 +2,11 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Liste Items</title>
+    <title>Ajouter Item dans l'inventaire</title>
     <link href="/styles.css" rel="stylesheet"/>
     <link href="/bootstrap.min.css" rel="stylesheet"/>
 </head>
+
 <body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -20,17 +21,24 @@
         </ul>
     </div><!-- /.navbar-collapse -->
 </nav>
+
+<h2>Gestion inventaire de : {{personnage.pseudo}}</h2>
+<h2>Place libre : {{personnage.placeLibre}}</h2>
+
 <table>
     <tr>
         <th>Nom</th>
         <th>Description</th>
     </tr>
+
     {{#items}}
     <tr>
         <td><a href="/items/{{id}}">{{nom}}</a></td>
         <td>{{description}}</td>
+        <input type="submit" value="Equiper" class="btn btn-success"/>
     </tr>
     {{/items}}
 </table>
+
 </body>
 </html>
