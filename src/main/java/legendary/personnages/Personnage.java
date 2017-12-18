@@ -311,28 +311,36 @@ public class Personnage implements Serializable {
     }
 
     public void deletePlaceInventaire(int placeId) {
-        if (placeId == 1) {
+        if (placeId == 1 && idInventaire1 != null) {
             this.idInventaire1 = null;
-        } else if (placeId == 2) {
+            this.placeLibre++;
+        } else if (placeId == 2 && idInventaire2 != null) {
             this.idInventaire2 = null;
-        } else if (placeId == 3) {
+            this.placeLibre++;
+        } else if (placeId == 3 && idInventaire3 != null) {
             this.idInventaire3 = null;
-        } else if (placeId == 4) {
+            this.placeLibre++;
+        } else if (placeId == 4 && idInventaire4 != null) {
             this.idInventaire4 = null;
-        } else if (placeId == 5) {
+            this.placeLibre++;
+        } else if (placeId == 5 && idInventaire5 != null) {
             this.idInventaire5 = null;
-        } else if (placeId == 6) {
+            this.placeLibre++;
+        } else if (placeId == 6 && idInventaire6 != null) {
             this.idInventaire6 = null;
-        } else if (placeId == 7) {
+            this.placeLibre++;
+        } else if (placeId == 7 && idInventaire7 != null) {
             this.idInventaire7 = null;
-        } else if (placeId == 8) {
+            this.placeLibre++;
+        } else if (placeId == 8 && idInventaire8 != null) {
             this.idInventaire8 = null;
-        } else if (placeId == 9) {
+            this.placeLibre++;
+        } else if (placeId == 9 && idInventaire9 != null) {
             this.idInventaire9 = null;
-        } else if (placeId == 10) {
+            this.placeLibre++;
+        } else if (placeId == 10 && idInventaire10 != null) {
             this.idInventaire10 = null;
+            this.placeLibre++;
         }
-
-        this.placeLibre++;
     }
 }
