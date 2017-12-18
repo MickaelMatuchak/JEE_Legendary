@@ -46,6 +46,25 @@ public class ItemController {
         return "detail-item";
     }
     
+    @RequestMapping(value = "/items/edit/{id}", method = RequestMethod.GET)
+    public String editItem(Model model, @PathVariable("id") String id) {
+        Item item = this.itemRepository.findById(id);
+
+        model.addAttribute("item", item);
+        return "edit-item";
+    }
+    
+    @RequestMapping(value = "/items/edit/{id}", method = RequestMethod.POST)
+    public String editItem(Model model, @PathVariable("id") String id, @RequestParam("nom") String nom, @RequestParam("description") String description, @RequestParam("type") String type, @RequestParam("rarete") String rarete, @RequestParam("levelRequis") Integer levelRequis, @RequestParam("tauxDrop") Float tauxDrop, @RequestParam("img") String img) {
+        Item item = new Item(nom, description, type, rarete, levelRequis, tauxDrop, img);
+        item.setId(id);
+        
+        itemRepository.save(item);
+       
+        model.addAttribute("item", item);
+        return "detail-item";
+    }
+    
     @RequestMapping(value = "/items/delete/{id}", method = RequestMethod.GET)
     public String deleteItem(@PathVariable String id, Model model){
     	Item item = this.itemRepository.findById(id);
