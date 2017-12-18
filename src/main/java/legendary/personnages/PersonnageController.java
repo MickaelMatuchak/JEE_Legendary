@@ -189,17 +189,24 @@ public class PersonnageController {
     public String equipArmePersonnage(@PathVariable String pseudo, @PathVariable String id) {
         Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
 
-        int idInventaire = Integer.parseInt(id);
+        int slot = Integer.parseInt(id);
         String idItem = null;
 
-        idItem = this.getIdItemOnInventaire(personnage, idInventaire);
+        idItem = this.getIdItemOnInventaire(personnage, slot);
 
-        personnage.deletePlaceInventaire(idInventaire);
+        personnage.deletePlaceInventaire(slot);
 
-        personnage.addInventaire(personnage.getIdSabre());
-        personnage.setIdSabre(idItem);
-        personnage.setImgSabre(itemRepository.findById(idItem).getImg());
-        personnage.setRareteSabre(itemRepository.findById(idItem).getRarete());
+        Item ancienItem = itemRepository.findById(personnage.getIdSabre());
+
+        personnage.addInventaire(ancienItem.getId());
+
+        Item item = itemRepository.findById(idItem);
+
+        personnage.setIdSabre(item.getId());
+        personnage.setImgSabre(item.getImg());
+        personnage.setRareteSabre(item.getRarete());
+
+        this.updateStats(personnage, ancienItem, item);
 
         personnageRepository.save(personnage);
 
@@ -210,17 +217,24 @@ public class PersonnageController {
     public String equipArmurePersonnage(@PathVariable String pseudo, @PathVariable String id) {
         Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
 
-        int idInventaire = Integer.parseInt(id);
+        int slot = Integer.parseInt(id);
         String idItem = null;
 
-        idItem = this.getIdItemOnInventaire(personnage, idInventaire);
+        idItem = this.getIdItemOnInventaire(personnage, slot);
 
-        personnage.deletePlaceInventaire(idInventaire);
+        personnage.deletePlaceInventaire(slot);
 
-        personnage.addInventaire(personnage.getIdArmure());
-        personnage.setIdArmure(idItem);
-        personnage.setImgArmure(itemRepository.findById(idItem).getImg());
-        personnage.setRareteArmure(itemRepository.findById(idItem).getRarete());
+        Item ancienItem = itemRepository.findById(personnage.getIdArmure());
+
+        personnage.addInventaire(ancienItem.getId());
+
+        Item item = itemRepository.findById(idItem);
+
+        personnage.setIdArmure(item.getId());
+        personnage.setImgArmure(item.getImg());
+        personnage.setRareteArmure(item.getRarete());
+
+        this.updateStats(personnage, ancienItem, item);
 
         personnageRepository.save(personnage);
 
@@ -231,17 +245,24 @@ public class PersonnageController {
     public String equipCasquePersonnage(@PathVariable String pseudo, @PathVariable String id) {
         Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
 
-        int idInventaire = Integer.parseInt(id);
+        int slot = Integer.parseInt(id);
         String idItem = null;
 
-        idItem = this.getIdItemOnInventaire(personnage, idInventaire);
+        idItem = this.getIdItemOnInventaire(personnage, slot);
 
-        personnage.deletePlaceInventaire(idInventaire);
+        personnage.deletePlaceInventaire(slot);
 
-        personnage.addInventaire(personnage.getIdArmure());
-        personnage.setIdCasque(idItem);
-        personnage.setImgCasque(itemRepository.findById(idItem).getImg());
-        personnage.setRareteCasque(itemRepository.findById(idItem).getRarete());
+        Item ancienItem = itemRepository.findById(personnage.getIdCasque());
+
+        personnage.addInventaire(ancienItem.getId());
+
+        Item item = itemRepository.findById(idItem);
+
+        personnage.setIdCasque(item.getId());
+        personnage.setImgCasque(item.getImg());
+        personnage.setRareteCasque(item.getRarete());
+
+        this.updateStats(personnage, ancienItem, item);
 
         personnageRepository.save(personnage);
 
@@ -274,5 +295,12 @@ public class PersonnageController {
         }
 
         return idItem;
+    }
+
+    private Personnage updateStats(Personnage personnage, Item ancienItem, Item nvItem) {
+        personnage.setAtkStuff(personnage.getAtkStuff() - ancienItem.getAttaque() + nvItem.getAttaque());
+        personnage.setDefStuff(personnage.getDefStuff() - ancienItem.getDefense() + nvItem.getDefense());
+
+        return personnage;
     }
 }

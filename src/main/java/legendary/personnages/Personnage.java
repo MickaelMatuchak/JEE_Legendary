@@ -27,6 +27,9 @@ public class Personnage implements Serializable {
     private Double puissance = 8.0;
     private Double defense = 14.0;
 
+    private int atkStuff = 0;
+    private int defStuff = 0;
+
     private String idCasque;
     private String idArmure;
     private String idSabre;
@@ -397,5 +400,21 @@ public class Personnage implements Serializable {
 
     public void setRareteSabre(String rareteSabre) {
         this.rareteSabre = rareteSabre;
+    }
+
+    public int getAtkStuff() {
+        return atkStuff;
+    }
+
+    public void setAtkStuff(int atkStuff) {
+        this.atkStuff = atkStuff;
+    }
+
+    public int getDefStuff() {
+        return defStuff;
+    }
+
+    public void setDefStuff(int defStuff) {
+        this.defStuff = defStuff;
     }
 }
