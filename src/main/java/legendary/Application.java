@@ -29,9 +29,9 @@ public class Application {
 
             // ARME
             itemRepository.save(new Item("Sabrolaser rouge", "Mythique sabrolaser de méchant", "arme", "epique", 20, (float) 20, 20, "sabrolaser-rouge.jpg", 60, 20));
-            itemRepository.save(new Item("Sabrolaser vert", "Peu commun mais banal", "Arme", "commun", 20, (float) 20, 20, "sabrolaser-vert.jpg", 60, 20));            
-            itemRepository.save(new Item("Sabrolaser bleu", "Il a appartenu a Obiwan Kenobi", "Arme", "epique", 20, (float) 20, 20, "sabrolaser-bleu.jpg", 60, 20));
-            itemRepository.save(new Item("Double sabrolaser rouge", "La légende raconte qu'il a appartenu à Dark Maul", "Arme", "legendaire", 30, (float) 20, 20, "sabrolaser-rouge-double.jpg", 80, 20));
+            itemRepository.save(new Item("Sabrolaser vert", "Peu commun mais banal", "arme", "commun", 20, (float) 20, 20, "sabrolaser-vert.jpg", 60, 20));
+            itemRepository.save(new Item("Sabrolaser bleu", "Il a appartenu a Obiwan Kenobi", "arme", "epique", 20, (float) 20, 20, "sabrolaser-bleu.jpg", 60, 20));
+            itemRepository.save(new Item("Double sabrolaser rouge", "La légende raconte qu'il a appartenu à Dark Maul", "arme", "legendaire", 30, (float) 20, 20, "sabrolaser-rouge-double.jpg", 80, 20));
             
             // CASQUE
             itemRepository.save(new Item("Casque du StormTrooper", "Casque d'un guerrier de l'empire", "casque", "commun", 1, (float) 20, 20, "casque-stormtrooper.jpg", 0, 20));

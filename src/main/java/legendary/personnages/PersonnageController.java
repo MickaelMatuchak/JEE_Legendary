@@ -35,16 +35,16 @@ public class PersonnageController {
 
         model.addAttribute("personnage", personnage);
 
-        Item item1 = new Item("", "", "", "", 0, (float) 0, 0, "");
-        Item item2 = new Item("", "", "", "", 0, (float) 0, 0, "");
-        Item item3 = new Item("", "", "", "", 0, (float) 0, 0, "");
-        Item item4 = new Item("", "", "", "", 0, (float) 0, 0, "");
-        Item item5 = new Item("", "", "", "", 0, (float) 0, 0, "");
-        Item item6 = new Item("", "", "", "", 0, (float) 0, 0, "");
-        Item item7 = new Item("", "", "", "", 0, (float) 0, 0, "");
-        Item item8 = new Item("", "", "", "", 0, (float) 0, 0, "");
-        Item item9 = new Item("", "", "", "", 0, (float) 0, 0, "");
-        Item item10 = new Item("", "", "", "", 0, (float) 0, 0, "");
+        Item item1 = new Item("", "", "", "", 0, (float) 0, 0, "", 0, 0);
+        Item item2 = new Item("", "", "", "", 0, (float) 0, 0, "", 0, 0);
+        Item item3 = new Item("", "", "", "", 0, (float) 0, 0, "", 0, 0);
+        Item item4 = new Item("", "", "", "", 0, (float) 0, 0, "", 0, 0);
+        Item item5 = new Item("", "", "", "", 0, (float) 0, 0, "", 0, 0);
+        Item item6 = new Item("", "", "", "", 0, (float) 0, 0, "", 0, 0);
+        Item item7 = new Item("", "", "", "", 0, (float) 0, 0, "", 0, 0);
+        Item item8 = new Item("", "", "", "", 0, (float) 0, 0, "", 0, 0);
+        Item item9 = new Item("", "", "", "", 0, (float) 0, 0, "", 0, 0);
+        Item item10 = new Item("", "", "", "", 0, (float) 0, 0, "", 0, 0);
 
         if (personnage.getIdInventaire1() != null) {
             item1 = this.itemRepository.findById(personnage.getIdInventaire1());
@@ -183,5 +183,96 @@ public class PersonnageController {
         personnageRepository.save(personnage);
 
         return "redirect";
+    }
+
+    @RequestMapping(value = "/personnages/{pseudo}/items/equip/arme/{id}", method = RequestMethod.GET)
+    public String equipArmePersonnage(@PathVariable String pseudo, @PathVariable String id) {
+        Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
+
+        int idInventaire = Integer.parseInt(id);
+        String idItem = null;
+
+        idItem = this.getIdItemOnInventaire(personnage, idInventaire);
+
+        personnage.deletePlaceInventaire(idInventaire);
+
+        personnage.addInventaire(personnage.getIdSabre());
+        personnage.setIdSabre(idItem);
+        personnage.setImgSabre(itemRepository.findById(idItem).getImg());
+        personnage.setRareteSabre(itemRepository.findById(idItem).getRarete());
+
+        personnageRepository.save(personnage);
+
+        return "redirect";
+    }
+
+    @RequestMapping(value ="/personnages/{pseudo}/items/equip/combinaison/{id}", method = RequestMethod.GET)
+    public String equipArmurePersonnage(@PathVariable String pseudo, @PathVariable String id) {
+        Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
+
+        int idInventaire = Integer.parseInt(id);
+        String idItem = null;
+
+        idItem = this.getIdItemOnInventaire(personnage, idInventaire);
+
+        personnage.deletePlaceInventaire(idInventaire);
+
+        personnage.addInventaire(personnage.getIdArmure());
+        personnage.setIdArmure(idItem);
+        personnage.setImgArmure(itemRepository.findById(idItem).getImg());
+        personnage.setRareteArmure(itemRepository.findById(idItem).getRarete());
+
+        personnageRepository.save(personnage);
+
+        return "redirect";
+    }
+
+    @RequestMapping(value ="/personnages/{pseudo}/items/equip/casque/{id}", method = RequestMethod.GET)
+    public String equipCasquePersonnage(@PathVariable String pseudo, @PathVariable String id) {
+        Personnage personnage = this.personnageRepository.findByPseudo(pseudo);
+
+        int idInventaire = Integer.parseInt(id);
+        String idItem = null;
+
+        idItem = this.getIdItemOnInventaire(personnage, idInventaire);
+
+        personnage.deletePlaceInventaire(idInventaire);
+
+        personnage.addInventaire(personnage.getIdArmure());
+        personnage.setIdCasque(idItem);
+        personnage.setImgCasque(itemRepository.findById(idItem).getImg());
+        personnage.setRareteCasque(itemRepository.findById(idItem).getRarete());
+
+        personnageRepository.save(personnage);
+
+        return "redirect";
+    }
+
+    private String getIdItemOnInventaire(Personnage personnage, int slot) {
+        String idItem = null;
+
+        if (slot == 1) {
+            idItem = personnage.getIdInventaire1();
+        } else if (slot == 2) {
+            idItem = personnage.getIdInventaire2();
+        } else if (slot == 3) {
+            idItem = personnage.getIdInventaire3();
+        } else if (slot == 4) {
+            idItem = personnage.getIdInventaire4();
+        } else if (slot == 5) {
+            idItem = personnage.getIdInventaire5();
+        } else if (slot == 6) {
+            idItem = personnage.getIdInventaire6();
+        } else if (slot == 7) {
+            idItem = personnage.getIdInventaire7();
+        } else if (slot == 8) {
+            idItem = personnage.getIdInventaire8();
+        } else if (slot == 8) {
+            idItem = personnage.getIdInventaire9();
+        } else if (slot == 10) {
+            idItem = personnage.getIdInventaire10();
+        }
+
+        return idItem;
     }
 }
