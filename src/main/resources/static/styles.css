@@ -77,15 +77,15 @@ select, select:hover, input[type="text"],  input[type="number"], input[type="pas
 }
 
 .rarete_rare{
-	border : solid 5px #AEB404;
-}
-
-.rarete_epique{
 	border : solid 5px #088A4B;
 }
 
-.rarete_legendaire{
+.rarete_epique{
 	border : solid 5px #8A0886;
+}
+
+.rarete_legendaire{
+	border : solid 5px #AEB404;
 }
 
 .image_item{
